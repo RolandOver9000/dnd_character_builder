@@ -1,19 +1,9 @@
-import React, { useState, createContext } from "react";
-import Axios from "axios";
+import React, { useState, createContext, useEffect } from "react";
 
 export const ItemContext = createContext();
 
 export const ItemProvider = (props) => {
-  const [items, setItems] = useState([
-    {
-      name: "sword",
-      price: "12",
-    },
-    {
-      name: "shield",
-      price: "8",
-    },
-  ]);
+  const [items, setItems] = useState("");
   return (
     <ItemContext.Provider value={[items, setItems]}>
       {props.children}
