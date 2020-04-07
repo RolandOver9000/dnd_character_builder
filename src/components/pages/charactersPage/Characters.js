@@ -1,16 +1,13 @@
-import React, { useContext } from "react";
-import AddCharacter from "./AddCharacter";
-import {CharacterContext} from "../../context/CharacterContext";
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Characters = (props) => {
-  const value = useContext(CharacterContext);
-  console.log(value)
   return (
     <div>
-      {/* <AddCharacter /> */}
-  <h1>répa retek mogyoró </h1>
-  <h2>{JSON.stringify(value)}</h2>
-
+      <Link to="/add-new-character">
+        {" "}
+        <button>Create new character</button>
+      </Link>
     </div>
   );
 };
