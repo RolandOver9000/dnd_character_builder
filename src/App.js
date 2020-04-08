@@ -9,6 +9,8 @@ import Monsters from "./components/pages/Monster/Monsters";
 import MonsterProvider from "./components/pages/Monster/MonsterContext";
 import Characters from "./components/pages/charactersPage/Characters";
 import AddCharacter from "./components/pages/charactersPage/AddCharacter";
+import Monster from "./components/pages/Monster/Monster";
+import MonsterDetail from "./components/pages/Monster/MonsterDetail";
 
 function App() {
   return (
@@ -46,6 +48,11 @@ function App() {
           <Route path="/monsters" component={Monsters} />
         </MonsterProvider>
       </div>
+      <MonsterProvider>
+        <Route path="/monsters" component={Monsters} />
+        <Route path="/monster" component={Monster} />
+        <Route path="/MonsterDetail/:name" component={MonsterDetail} />
+      </MonsterProvider>
     </Router>
   );
 }

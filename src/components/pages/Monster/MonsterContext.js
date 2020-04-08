@@ -14,6 +14,7 @@ export default function MonsterProvider(props) {
     );
   }, []);
 
+  
   return (
     <MonsterContext.Provider value={[monsters, setMonsters]}>
       {props.children}
