@@ -33,7 +33,7 @@ const Monsters = (props) => {
         justifyContent: `space-around`,
       }}
     >
-      {monsters.map((monster) => (
+      {monsters.slice(0, 5).map((monster) => (
         <Monster
           name={monster.name}
           index={monster.index}

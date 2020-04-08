@@ -48,7 +48,14 @@ const Monsters = (props) => {
                 margin: `15px 0px 0px 0px`,
               }}
             >
-              <h2>{monsterDetail.name}</h2>
+              <h2>
+                {monsterDetail.name}{" "}
+                <img
+                  src="https://pngimage.net/wp-content/uploads/2018/05/dragon-png-images.png"
+                  height="60"
+                  width="60"
+                ></img>
+              </h2>
             </div>
             <div class="Skills" style={{ outline: `2px solid black` }}>
               <p>
