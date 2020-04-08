@@ -6,30 +6,43 @@ const AddCharacter = (props) => {
   const skills = value.skills;
   const classes = value.classes;
   const stats = value.stats;
-  //skills.map(skill=>console.log(skill))
+  for(const stat of stats){
+    stat.lvl = 1;
+    console.log(stat)
+  }
+  console.log(stats)
   return (
     <div>
-      <h3>májashurka</h3>
       <form>
+        Character Name:{" "}
         <input type="text" required name="characterName"></input>
-
-        <select>
+        <p>
+          Class:{" "}
+          <select>
+            {classes.map((clas) => (
+              <option value={clas.name}>{clas.name}</option>
+            ))}
+          </select>
+        </p>
         {skills.map((skill) => (
-          <option value={skill.name}>{skill.name}</option>
+          <div>
+            <input
+              type="checkbox"
+              id={skill.name}
+              name={skill.name}
+              value={skill.name}
+            ></input>
+            <label for={skill.name}> {skill.name}</label>
+          </div>
         ))}
-        </select>
-        <select>
-          <option value="grapefruit">Grapefruit</option>
-        </select>
         <button>Create</button>
       </form>
       <h5>
-        {skills.map((skill) => (
-          <p>{skill.name}</p>
+        Stats:
+        {stats.map((stat) => (
+          <div>{JSON.stringify(stat)}</div>
         ))}
       </h5>
-      <h5>{JSON.stringify(classes)}</h5>
-      <h5>{JSON.stringify(stats)}</h5>
     </div>
   );
 };
