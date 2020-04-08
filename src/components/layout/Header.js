@@ -1,9 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import DnDLogo from "./dnd_5.png";
 
 function Header() {
   return (
+    // <header style={{ headerStyle, backgroundImage: `url(${DnDLogo})` }}>
     <header style={headerStyle}>
+      <img
+        alt="no image here"
+        src={DnDLogo}
+        style={{ width: "7%", height: "7%" }}
+      />
       <h1>Dungeons & Dragons</h1>
       <Link style={linkStyle} to="/">
         Home
