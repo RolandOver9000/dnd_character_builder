@@ -1,7 +1,7 @@
 import React from "react";
 import "./charactersheet.css";
 
-const Character = () => {
+const CharacterSheet = () => {
   return (
     <div className="grid-container">
       <div className="Character-Name">name</div>
@@ -21,7 +21,7 @@ const Character = () => {
   );
 };
 
-export default Character;
+export default CharacterSheet;
 
 /*
 

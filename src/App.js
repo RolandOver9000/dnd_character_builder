@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Character from "./components/pages/character/character";
+import CharacterSheet from "./components/pages/character/characterSheet";
 import Shop from "./components/pages/shop/shop";
 
 import Header from "./components/layout/Header";
@@ -12,7 +12,8 @@ function App() {
       <div className="App">
         <Header />
         <Route exact path="/" />
-        <Route path="/characters" component={Character} />
+        <Route path="/characters" />
+        <Route path="/new-character" component={CharacterSheet} />
         <Route path="/monsters" />
         <ItemProvider>
           <Route path="/shop" component={Shop} />
