@@ -3,13 +3,11 @@ import Axios from "axios";
 
 export const MonsterContext = createContext();
 
-export default function MonsterProvider(props) {
+export const MonsterProvider = (props) => {
   const [monsters, setMonsters] = useState([]);
 
   useEffect(() => {
     Axios.get("https://www.dnd5eapi.co/api/monsters").then((resp) =>
-      // setItems(resp.data.results)
-      // console.log(resp)
       setMonsters(resp.data.results)
     );
   }, []);
@@ -19,4 +17,4 @@ export default function MonsterProvider(props) {
       {props.children}
     </MonsterContext.Provider>
   );
-}
+};
