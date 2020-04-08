@@ -1,0 +1,59 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 1px 1px;
+  grid-template-areas: "Character-Name Character-Name Character-Name Character-Name Character-Name Character-Name" "STR Skills . . . Traits" "DEX Skills HP HP HP Traits" "CONST Skills HP HP HP Traits" "Int Class Inventory Inventory Inventory Attacks" "WIS Class Inventory Inventory Inventory Attacks" "CHAR Class Inventory Inventory Inventory Attacks";
+}
+
+.Character-Name {
+  grid-area: Character-Name;
+}
+
+.Skills {
+  grid-area: Skills;
+}
+
+.Class {
+  grid-area: Class;
+}
+
+.HP {
+  grid-area: HP;
+}
+
+.Inventory {
+  grid-area: Inventory;
+}
+
+.Traits {
+  grid-area: Traits;
+}
+
+.Attacks {
+  grid-area: Attacks;
+}
+
+.STR {
+  grid-area: STR;
+}
+
+.DEX {
+  grid-area: DEX;
+}
+
+.CONST {
+  grid-area: CONST;
+}
+
+.Int {
+  grid-area: Int;
+}
+
+.WIS {
+  grid-area: WIS;
+}
+
+.CHAR {
+  grid-area: CHAR;
+}
