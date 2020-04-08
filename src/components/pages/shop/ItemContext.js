@@ -4,21 +4,7 @@ import Axios from "axios";
 export const ItemContext = createContext();
 
 export const ItemProvider = (props) => {
-  const [items, setItems] = useState([""]);
-
-  // useEffect(() => {
-  //   Axios.get("https://www.dnd5eapi.co/api/equipment").then((resp) =>
-  //     // setItems(resp.data.results)
-  //     setItems(resp.data.results)
-  //   );
-  // }, []);
-
-  // useEffect(() => {
-  //   Axios.get("https://www.dnd5eapi.co/api/equipment/club").then((resp) =>
-  //     // setItems(resp.data.results)
-  //     setItems(resp.data)
-  //   );
-  // }, []);
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     Axios.get("https://www.dnd5eapi.co/api/equipment").then((resp) => {

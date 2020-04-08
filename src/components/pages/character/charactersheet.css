@@ -5,15 +5,21 @@
   gap: 1px 1px;
   grid-template-areas: "Character-Name Character-Name Character-Name Character-Name Character-Name Character-Name" "STR Skills . . . Traits" "DEX Skills HP HP HP Traits" "CONST Skills HP HP HP Traits" "Int Class Inventory Inventory Inventory Attacks" "WIS Class Inventory Inventory Inventory Attacks" "CHAR Class Inventory Inventory Inventory Attacks";
   border: 200px;
-  border-color: red;
+}
+
+.borders {
+  outline: 2px, blue;
 }
 
 .Character-Name {
   grid-area: Character-Name;
+  outline: 2px, blue;
+  padding: 2px;
 }
 
 .Skills {
   grid-area: Skills;
+  outline: 2px, blue;
 }
 
 .Class {
