@@ -5,6 +5,7 @@ import React, {
   useLayoutEffect,
   forceUpdate,
   useContext,
+  ReactFragment,
 } from "react";
 import { Router, Route, Link, RouteHandler } from "react-router-dom";
 import styled from "styled-components";
@@ -12,10 +13,11 @@ import Axios from "axios";
 import Monster from "./Monster";
 import { MonsterContext } from "./MonsterContext";
 import "./styling.css";
+import { MonsterDetailContext } from "./MonsterDetailContext";
 
 const Monsters = (props) => {
   const [monsters, setMonsters] = useContext(MonsterContext);
-
+  const { monsterDetail } = useContext(MonsterDetailContext);
   //   if (!isLoaded) {
   //     return (
   //       <div>
@@ -25,67 +27,135 @@ const Monsters = (props) => {
   //   } else {
 
   return (
-    <div>
-      {monsters.map((item) => (
-        <div
-          class="grid-container"
-          style={{
-            padding: `42px`,
-            margin: `30px 0px 0px 0px`,
-            background: `#F5F5DC`,
-          }}
-        >
+    <React.Fragment>
+      {monsterDetail === null ? (
+        "loading"
+      ) : (
+        <div>
           <div
-            class="Character-Name"
+            class="grid-container"
             style={{
-              outline: `2px solidblack`,
               padding: `42px`,
               margin: `30px 0px 0px 0px`,
+              background: `#F5F5DC`,
             }}
           >
-            {item.name}
+            <div
+              class="Character-Name"
+              style={{
+                outline: `2px solidblack`,
+                padding: `42px`,
+                margin: `15px 0px 0px 0px`,
+              }}
+            >
+              <h2>{monsterDetail.name}</h2>
+            </div>
+            <div class="Skills" style={{ outline: `2px solid black` }}>
+              <p>
+                <b>Common Action name:</b>
+              </p>
+              {monsterDetail.actions[0].name}
+              <p>
+                <b>Common Action Description:</b>
+              </p>
+              {monsterDetail.actions[0].desc}
+            </div>
+            <div class="Class" style={{ outline: `2px solid blue` }}>
+              <p>
+                <b>Language:</b>
+              </p>
+              {monsterDetail.languages}
+            </div>
+            <div class="HP" style={{ outline: `2px solid blue` }}>
+              <h6>
+                <b>Challenge Rating</b>
+              </h6>
+              {monsterDetail.challenge_rating}
+            </div>
+            <div class="Inventory" style={{ outline: `2px solid blue` }}>
+              <b>Special Ability 1:</b>
+              {monsterDetail.special_abilities[0].name}
+              <p>
+                <b>Description:</b>
+              </p>
+              {monsterDetail.special_abilities[0].desc}
+              <p>
+                <b>Special Ability 2:</b>
+              </p>
+              {monsterDetail.special_abilities[1].name}
+              <p>
+                <b>Description:</b>{" "}
+              </p>
+              {monsterDetail.special_abilities[1].desc}
+            </div>
+            <div class="Traits" style={{ outline: `2px solid blue` }}>
+              <p>
+                <b>Action:</b>
+              </p>
+              {monsterDetail.actions[0].name}
+              <p>
+                <b>Description:</b>
+              </p>
+              {monsterDetail.actions[0].desc}
+            </div>
+            <div class="Attacks" style={{ outline: `2px solid blue` }}>
+              <p>
+                <b>Legendary Attack:</b>
+              </p>
+              {monsterDetail.legendary_actions[2].name}
+              <p>
+                <b>Special Ability 2:</b>
+              </p>
+              {monsterDetail.legendary_actions[2].desc}
+            </div>
+            <div class="STR" style={{ outline: `2px solid blue` }}>
+              <p>
+                <b>Attack Bonus</b>
+              </p>
+              {monsterDetail.actions[1].attack_bonus}
+            </div>
+            <div class="DEX" style={{ outline: `2px solid blue` }}>
+              <p>
+                <b>Damage Type:</b>
+              </p>
+              {monsterDetail.actions[1].damage[0].damage_type.name}
+            </div>
+            <div class="CONST" style={{ outline: `2px solid blue` }}>
+              <p>
+                <b>Big Action:</b>
+              </p>
+              {monsterDetail.actions[1].name}
+              <p>
+                <b>Big Action Description:</b>
+              </p>
+              {monsterDetail.actions[1].desc}
+            </div>
+            <div class="Int" style={{ outline: `2px solid blue` }}>
+              <p>
+                <b>Damage Dice:</b>
+              </p>
+              {monsterDetail.actions[1].damage[0].damage_dice}
+            </div>
+            <div class="WIS" style={{ outline: `2px solid blue` }}>
+              <p>
+                <b>Type:</b>
+              </p>
+              {monsterDetail.actions[1].damage[1].type}
+            </div>
+            <div class="CHAR" style={{ outline: `2px solid blue` }}>
+              <p>
+                <b>Bonus:</b>
+              </p>
+              {monsterDetail.actions[1].damage[1].bonus}
+            </div>
           </div>
-          <div class="Skills" style={{ outline: `2px solid black` }}>
-            sdfsdfsdfsdf hskfhsad kjlfhsdkjlfh dsjkfhsadklf skfh askfh sdkhas
-            kfhs fhs fkhs
-          </div>
-          <div class="Class" style={{ outline: `2px solid blue` }}>
-            saf
-          </div>
-          <div class="HP" style={{ outline: `2px solid blue` }}>
-            sadf
-          </div>
-          <div class="Inventory" style={{ outline: `2px solid blue` }}>
-            asdf
-          </div>
-          <div class="Traits" style={{ outline: `2px solid blue` }}>
-            sdfsfsdf
-          </div>
-          <div class="Attacks" style={{ outline: `2px solid blue` }}>
-            safdsdfsdfs
-          </div>
-          <div class="STR" style={{ outline: `2px solid blue` }}>
-            sfsdfsdfsdaf
-          </div>
-          <div class="DEX" style={{ outline: `2px solid blue` }}>
-            safsdfsdf
-          </div>
-          <div class="CONST" style={{ outline: `2px solid blue` }}>
-            sdfsadfsdaf
-          </div>
-          <div class="Int" style={{ outline: `2px solid blue` }}>
-            sadfsdafsadf
-          </div>
-          <div class="WIS" style={{ outline: `2px solid blue` }}>
-            asdfsdfsdaf
-          </div>
-          <div class="CHAR" style={{ outline: `2px solid blue` }}>
-            asdfsadfsadf
-          </div>
+          ;
+          <button type="button" class="btn btn-info">
+            Add New Monster
+          </button>
         </div>
-      ))}
-      ;
-    </div>
+      )}
+    </React.Fragment>
   );
   //   }
 };

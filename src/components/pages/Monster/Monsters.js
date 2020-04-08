@@ -24,9 +24,21 @@ const Monsters = (props) => {
   //   } else {
 
   return (
-    <div>
+    <div
+      style={{
+        margin: `auto`,
+
+        flexWrap: `wrap`,
+        display: `flex`,
+        justifyContent: `space-around`,
+      }}
+    >
       {monsters.map((monster) => (
-        <Monster name={monster.name} key={monster.index} />
+        <Monster
+          name={monster.name}
+          index={monster.index}
+          key={monster.index}
+        />
       ))}
     </div>
   );

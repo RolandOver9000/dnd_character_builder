@@ -1,16 +1,43 @@
-import React from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import MonsterDetail from "./MonsterDetail";
+import Axios from "axios";
+import { MonsterDetailContext } from "./MonsterDetailContext";
 
-const Monster = ({ name }) => {
+const Monster = (props) => {
+  const { getMonsterDetail } = useContext(MonsterDetailContext);
+
   return (
     <div>
       <div>
-        <Link to={`/MonsterDetail/` + name}>
-          <button type="button" class="btn btn-info" style={{ margin: `2px` }}>
-            {name}
-          </button>
-        </Link>
+        <div
+          class="card"
+          style={{
+            width: `18rem`,
+          }}
+        >
+          <img
+            class="card-img-top"
+            src="https://pngimage.net/wp-content/uploads/2018/05/dungeons-and-dragons-png-6.png"
+            alt="Card image cap"
+          ></img>
+          <div class="card-body">
+            <h5 class="card-title">{props.name}</h5>
+            <p class="card-text"></p>
+
+            <Link to={`/MonsterDetail/` + props.name}>
+              <button
+                type="button"
+                class="btn btn-primary"
+                style={{ margin: `2px` }}
+                key={props.name}
+                onClick={() => getMonsterDetail(props.index)}
+              >
+                {props.name}
+              </button>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

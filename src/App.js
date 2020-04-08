@@ -14,6 +14,7 @@ import MonsterProvider from "./components/pages/Monster/MonsterContext";
 // import Characters from './components/pages/character'
 import Monster from "./components/pages/Monster/Monster";
 import MonsterDetail from "./components/pages/Monster/MonsterDetail";
+import MonsterDetailProvider from "./components/pages/Monster/MonsterDetailContext";
 
 function App() {
   return (
@@ -43,9 +44,12 @@ function App() {
         <Route path="/shop" />
       </div>
       <MonsterProvider>
-        <Route path="/monsters" component={Monsters} />
-        <Route path="/monster" component={Monster} />
-        <Route path="/MonsterDetail/:name" component={MonsterDetail} />
+        <MonsterDetailProvider>
+          <Route path="/monsters" component={Monsters} />
+
+          <Route path="/monster" component={Monster} />
+          <Route path="/MonsterDetail/:name" component={MonsterDetail} />
+        </MonsterDetailProvider>
       </MonsterProvider>
     </Router>
   );
