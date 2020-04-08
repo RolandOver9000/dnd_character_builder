@@ -4,19 +4,19 @@ import "./charactersheet.css";
 const CharacterSheet = () => {
   return (
     <div className="grid-container">
-      <div className="Character-Name">name</div>
-      <div className="Skills">skills</div>
-      <div className="Class">class</div>
-      <div className="HP">hp</div>
-      <div className="Inventory">inventory</div>
-      <div className="Traits">traits</div>
-      <div className="Attacks">attacks</div>
-      <div className="STR">str</div>
-      <div className="DEX">dex</div>
-      <div className="CONST">const</div>
-      <div className="Int">int</div>
-      <div className="WIS">wis</div>
-      <div className="CHAR">char</div>
+      <div className="Character-Name borders">name</div>
+      <div className="Skills borders">skills</div>
+      <div className="Class borders">class</div>
+      <div className="HP borders">hp</div>
+      <div className="Inventory borders">inventory</div>
+      <div className="Traits borders">traits</div>
+      <div className="Attacks borders">attacks</div>
+      <div className="STR borders">str</div>
+      <div className="DEX borders">dex</div>
+      <div className="CONST borders">const</div>
+      <div className="Int borders">int</div>
+      <div className="WIS borders">wis</div>
+      <div className="CHAR borders">char</div>
     </div>
   );
 };

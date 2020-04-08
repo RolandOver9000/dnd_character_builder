@@ -4,12 +4,12 @@ import Axios from "axios";
 export const CategoryContext = createContext();
 
 export const CategoryProvider = (props) => {
-  const [itemCategories, setItemCategories] = useState([""]);
+  const [itemCategories, setItemCategories] = useState([]);
 
   useEffect(() => {
     Axios.get("https://www.dnd5eapi.co/api/equipment-categories").then(
       (resp) => {
-        setItemCategories([resp.data.results]);
+        setItemCategories(resp.data.results);
       }
     );
   }, []);

@@ -4,11 +4,8 @@ import { CategoryContext } from "./CategoryContext";
 import Item from "./Item";
 
 import { Layout, Menu } from "antd";
-import {
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
+import { UserOutlined } from "@ant-design/icons";
+import { Row, Col } from "antd";
 import "antd/dist/antd.css";
 
 const Shop = () => {
@@ -32,10 +29,13 @@ const Shop = () => {
         >
           <div className="logo" />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={["4"]}>
-            <Menu.Item key="1">
-              <UserOutlined />
-              <span className="nav-text">All</span>
-            </Menu.Item>
+            {itemCategories.map((category) => (
+              <Menu.Item key={category.name}>
+                <UserOutlined />
+                <span className="nav-text">{category.name}</span>
+              </Menu.Item>
+            ))}
+            <span>=======================</span>
           </Menu>
         </Sider>
         <Layout>
@@ -49,9 +49,17 @@ const Shop = () => {
               style={{ padding: 24, minHeight: 360 }}
             >
               <div>
-                {items.map((item) => (
-                  <Item name={item.name} key={item._id} />
-                ))}
+                <Row gutter={[16, 24]}>
+                  {items.map((item) => (
+                    <Col className="gutter-row" span={6}>
+                      <Item
+                        name={item.name}
+                        price={item.cost.quantity}
+                        key={item._id}
+                      />
+                    </Col>
+                  ))}
+                </Row>
               </div>
             </div>
           </Content>
@@ -60,7 +68,6 @@ const Shop = () => {
           </Footer>
         </Layout>
       </Layout>
-      , mountNode,
     </div>
   );
 };
