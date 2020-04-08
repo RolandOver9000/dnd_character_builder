@@ -7,7 +7,7 @@ export const CharacterProvider = (props) => {
   const [skills, setSkills] = useState([]);
   const [classes, setClasses] = useState([]);
   const [stats, setStats] = useState([]);
-
+  const [characters, setCharacters] = useState([{id:1, name: 'Skandar Graun', class: 'warrior-priest', stats:[], skills:[]}])
   //Skills
   useEffect(() => {
     axios.get("https://www.dnd5eapi.co/api/skills").then((res) => {
@@ -33,7 +33,7 @@ export const CharacterProvider = (props) => {
   }, []);
 
   return (
-    <CharacterContext.Provider value={{ skills, classes, stats }}>
+    <CharacterContext.Provider value={{ skills, setSkills, classes, setClasses, stats, setStats, characters, setCharacters }}>
       {props.children}
     </CharacterContext.Provider>
   );
