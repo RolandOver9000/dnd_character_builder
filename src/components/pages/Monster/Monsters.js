@@ -7,6 +7,7 @@ import React, {
   useContext,
 } from "react";
 import { Router, Route, Link, RouteHandler } from "react-router-dom";
+
 import Axios from "axios";
 import Monster from "./Monster";
 import { MonsterContext } from "./MonsterContext";
@@ -25,9 +26,7 @@ const Monsters = (props) => {
   return (
     <div>
       {monsters.map((monster) => (
-        <Link>
-          <Monster name={monster.name} key={monster.index} />
-        </Link>
+        <Monster name={monster.name} key={monster.index} />
       ))}
     </div>
   );
