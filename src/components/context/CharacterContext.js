@@ -33,7 +33,7 @@ export const CharacterProvider = (props) => {
   }, []);
 
   return (
-    <CharacterContext.Provider value={{skills, classes, stats}}>
+    <CharacterContext.Provider value={{ skills, classes, stats }}>
       {props.children}
     </CharacterContext.Provider>
   );
