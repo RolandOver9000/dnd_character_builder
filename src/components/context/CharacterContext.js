@@ -10,32 +10,30 @@ export const CharacterProvider = (props) => {
 
   //Skills
   useEffect(() => {
-    axios.get("http://dnd5eapi.co/api/skills").then((res) => {
-      setSkills(res.data);
+    axios.get("https://www.dnd5eapi.co/api/skills").then((res) => {
+      setSkills(res.data.results);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   //Classes
   useEffect(() => {
-    axios.get("http://dnd5eapi.co/api/classes").then((res) => {
-      setClasses(res.data);
+    axios.get("https://www.dnd5eapi.co/api/classes").then((res) => {
+      setClasses(res.data.results);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   //Stats
-   //Classes
-   useEffect(() => {
-    axios.get("http://dnd5eapi.co/api/ability-scores").then((res) => {
-      setStats(res.data);
+  useEffect(() => {
+    axios.get("https://www.dnd5eapi.co/api/ability-scores").then((res) => {
+      setStats(res.data.results);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-
   return (
-    <CharacterContext.Provider value={[skills, classes, stats]}>
+    <CharacterContext.Provider value={{skills, classes, stats}}>
       {props.children}
     </CharacterContext.Provider>
   );
