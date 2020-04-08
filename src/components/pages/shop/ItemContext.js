@@ -4,11 +4,7 @@ import Axios from "axios";
 export const ItemContext = createContext();
 
 export const ItemProvider = (props) => {
-  const [items, setItems] = useState([
-    {
-      name: "Sword",
-    },
-  ]);
+  const [items, setItems] = useState([""]);
 
   // useEffect(() => {
   //   Axios.get("https://www.dnd5eapi.co/api/equipment").then((resp) =>
@@ -27,15 +23,17 @@ export const ItemProvider = (props) => {
   useEffect(() => {
     Axios.get("https://www.dnd5eapi.co/api/equipment").then((resp) => {
       resp.data.results.map((item) => {
-        Axios.get(item.url).then((itemObject) => {
-          setItems(item);
-        });
+        return Axios.get("https://www.dnd5eapi.co" + item.url).then(
+          (itemObject) => {
+            setItems((items) => [...items, itemObject.data]);
+          }
+        );
       });
     });
   }, []);
 
   return (
-    <ItemContext.Provider value={(items, setItems)}>
+    <ItemContext.Provider value={[items, setItems]}>
       {props.children}
     </ItemContext.Provider>
   );

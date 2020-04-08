@@ -1,8 +1,30 @@
 import React from "react";
-import { Row, Col } from "antd";
-import "antd/dist/antd.css";
+import "./charactersheet.css";
 
-function Character() {
+const Character = () => {
+  return (
+    <div className="grid-container">
+      <div className="Character-Name">name</div>
+      <div className="Skills">skills</div>
+      <div className="Class">class</div>
+      <div className="HP">hp</div>
+      <div className="Inventory">inventory</div>
+      <div className="Traits">traits</div>
+      <div className="Attacks">attacks</div>
+      <div className="STR">str</div>
+      <div className="DEX">dex</div>
+      <div className="CONST">const</div>
+      <div className="Int">int</div>
+      <div className="WIS">wis</div>
+      <div className="CHAR">char</div>
+    </div>
+  );
+};
+
+export default Character;
+
+/*
+
   return (
     <div>
       <Row>
@@ -45,11 +67,6 @@ function Character() {
       </Row>
     </div>
   );
-}
-
-export default Character;
-
-/*
 
           <div>
       <Layout>

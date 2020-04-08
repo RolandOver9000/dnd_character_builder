@@ -4,6 +4,7 @@ import Item from "./Item";
 
 const Shop = () => {
   const [items, setItems] = useContext(ItemContext);
+  console.log(items);
 
   return (
     <div>
