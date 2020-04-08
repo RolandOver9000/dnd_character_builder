@@ -6,6 +6,7 @@ import Shop from "./components/pages/shop/shop";
 import Header from "./components/layout/Header";
 
 import { ItemProvider } from "./components/pages/shop/ItemContext";
+import { CategoryProvider } from "./components/pages/shop/CategoryContext";
 
 import { CharacterProvider } from "./components/context/CharacterContext";
 import Monsters from "./components/pages/Monster/Monsters";
@@ -22,7 +23,9 @@ function App() {
         <Route path="/new-character" component={CharacterSheet} />
         <Route path="/monsters" />
         <ItemProvider>
-          <Route path="/shop" component={Shop} />
+          <CategoryProvider>
+            <Route path="/shop" component={Shop} />
+          </CategoryProvider>
         </ItemProvider>
         <CharacterProvider>
           <Route
