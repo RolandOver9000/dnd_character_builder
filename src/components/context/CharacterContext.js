@@ -4,9 +4,9 @@ import axios from "axios";
 export const CharacterContext = createContext();
 
 export const CharacterProvider = (props) => {
-  const [skills, setSkills] = useState({});
-  const [classes, setClasses] = useState({});
-  const [stats, setStats] = useState({});
+  const [skills, setSkills] = useState([]);
+  const [classes, setClasses] = useState([]);
+  const [stats, setStats] = useState([]);
 
   //Skills
   useEffect(() => {
