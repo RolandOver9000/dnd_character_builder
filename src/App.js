@@ -1,8 +1,12 @@
 import React, { Component, useState, useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Axios from "axios";
+import CharacterSheet from "./components/pages/character/characterSheet";
+import Shop from "./components/pages/shop/shop";
 
 import Header from "./components/layout/Header";
+
+import { ItemProvider } from "./components/pages/shop/ItemContext";
+
 import { CharacterProvider } from "./components/context/CharacterContext";
 import Monsters from "./components/pages/Monster/Monsters";
 import MonsterProvider from "./components/pages/Monster/MonsterContext";
@@ -17,6 +21,12 @@ function App() {
       <div className="App">
         <Header />
         <Route exact path="/" />
+        <Route path="/characters" />
+        <Route path="/new-character" component={CharacterSheet} />
+        <Route path="/monsters" />
+        <ItemProvider>
+          <Route path="/shop" component={Shop} />
+        </ItemProvider>
         <CharacterProvider>
           <Route
             exact
