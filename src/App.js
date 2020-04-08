@@ -41,11 +41,10 @@ function App() {
           </React.Fragment>
         )}
         <Route path="/shop" />
-      
-      <MonsterProvider>
-        <Route path="/monsters" component={Monsters} />
-      </MonsterProvider>
 
+        <MonsterProvider>
+          <Route path="/monsters" component={Monsters} />
+        </MonsterProvider>
       </div>
     </Router>
   );

@@ -12,9 +12,11 @@ const Characters = (props) => {
         {" "}
         <button>Create new character</button>
       </Link>
-      {characters.map((character) => (
-        <Character character={character} />
-      ))}
+      <div className="row">
+        {characters.map((character) => (
+          <Character character={character} />
+        ))}
+      </div>
     </div>
   );
 };
