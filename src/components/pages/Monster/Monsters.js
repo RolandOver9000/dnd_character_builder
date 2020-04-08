@@ -22,11 +22,13 @@ const Monsters = (props) => {
   //       </div>
   //     );
   //   } else {
+
   return (
     <div>
-      {console.log(monsters)}
       {monsters.map((monster) => (
-        <Monster name={monster.name} key={monster.index} />
+        <Link>
+          <Monster name={monster.name} key={monster.index} />
+        </Link>
       ))}
     </div>
   );
