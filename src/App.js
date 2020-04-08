@@ -7,7 +7,6 @@ import { ItemProvider } from "./components/pages/shop/ItemContext";
 import { CharacterProvider } from "./components/context/CharacterContext";
 import Monsters from "./components/pages/Monster/Monsters";
 import MonsterProvider from "./components/pages/Monster/MonsterContext";
-// import AddCharacter from './components/pages/AddCharacter'
 import Characters from "./components/pages/charactersPage/Characters";
 import AddCharacter from "./components/pages/charactersPage/AddCharacter";
 
@@ -20,9 +19,11 @@ function App() {
         <Route path="/characters" />
         <Route path="/new-character" component={CharacterSheet} />
         <Route path="/monsters" />
+
         <ItemProvider>
           <Route path="/shop" component={Shop} />
         </ItemProvider>
+
         <CharacterProvider>
           <Route exact path="/characters" render={(props) => <Characters />} />
           <Route
@@ -31,8 +32,8 @@ function App() {
             render={(props) => <AddCharacter />}
           />
         </CharacterProvider>
-        <Route path="/monsters" />
 
+        <Route path="/monsters" />
         {(props) => (
           <React.Fragment>
             {/* <AddCharacter /> */}
@@ -40,10 +41,12 @@ function App() {
           </React.Fragment>
         )}
         <Route path="/shop" />
-      </div>
+      
       <MonsterProvider>
         <Route path="/monsters" component={Monsters} />
       </MonsterProvider>
+
+      </div>
     </Router>
   );
 }

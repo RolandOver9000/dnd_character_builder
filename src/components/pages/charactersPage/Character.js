@@ -9,8 +9,9 @@ function Character(props) {
         width="140"
         height="200"
       ></img>
-      <p>{props.character.name}</p>
-      <p>{props.character.class}</p>
+      <p>name: {props.character.name}</p>
+      <p>class: {props.character.class}</p>
+  <p>Lvl: {props.character.characterLvl}</p>
     </div>
   );
 }
