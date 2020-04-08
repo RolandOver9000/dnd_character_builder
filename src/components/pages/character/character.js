@@ -1,18 +1,16 @@
-import React, { Component } from "react";
-import { Row, Col, Divider } from "antd";
+import React from "react";
+import { Row, Col } from "antd";
 import "antd/dist/antd.css";
-
-const DemoBox = (props) => (
-  <p className={`height-${props.value}`}>{props.children}</p>
-);
 
 function Character() {
   return (
     <div>
       <Row>
-        <Col span={24}>Character Name</Col>
+        <Col span={24}>
+          <p>Character Name</p>
+        </Col>
       </Row>
-      <Row>
+      <Row span={24}>
         <Col span={4}>
           <Row span={2}>Strength</Row>
           <Row span={2}>Dexterity</Row>
@@ -32,13 +30,17 @@ function Character() {
             <Col span={8}>Initiative</Col>
             <Col span={8}>Speed</Col>
           </Row>
-          <Row span={24}>HP</Row>
-          <Row span={24}>Inventory</Row>
+          <Row>HP</Row>
+          <Row>Inventory</Row>
         </Col>
 
         <Col span={7}>
-          <Row span={24}>Traits</Row>
-          <Row span={24}>Attacks</Row>
+          <Row span={24}>
+            <p>Traits</p>
+          </Row>
+          <Row span={24}>
+            <p>Attacks</p>
+          </Row>
         </Col>
       </Row>
     </div>
