@@ -7,7 +7,6 @@ import React, {
   useContext,
 } from "react";
 import { Router, Route, Link, RouteHandler } from "react-router-dom";
-import styled from "styled-components";
 import Axios from "axios";
 import Monster from "./Monster";
 import { MonsterContext } from "./MonsterContext";
