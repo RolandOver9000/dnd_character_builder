@@ -28,7 +28,16 @@ const Shop = () => {
           }}
         >
           <div className="logo" />
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={["4"]}>
+          <Menu
+            style={{
+              color: "white",
+              backgroundColor: "black",
+              borderColor: "#db0f29",
+              borderWidth: "3px",
+            }}
+            mode="inline"
+            defaultSelectedKeys={["4"]}
+          >
             {itemCategories.map((category) => (
               <Menu.Item key={category.name}>
                 <UserOutlined />
@@ -40,9 +49,25 @@ const Shop = () => {
         </Sider>
         <Layout>
           <Header
-            className="site-layout-sub-header-background"
-            style={{ padding: 0 }}
-          />
+            // className="site-layout-sub-header-background"
+            style={{
+              padding: 0,
+              backgroundColor: "black",
+              border: "5px #db0f29",
+            }}
+          >
+            <Content>
+              <h2
+                style={{
+                  color: "white",
+                  padding: "20px",
+                  verticalAlign: "middle",
+                }}
+              >
+                D&D Shop
+              </h2>
+            </Content>
+          </Header>
           <Content style={{ margin: "24px 16px 0" }}>
             <div
               className="site-layout-background"
@@ -55,6 +80,7 @@ const Shop = () => {
                       <Item
                         name={item.name}
                         price={item.cost.quantity}
+                        priceUnit={item.cost.unit}
                         key={item._id}
                       />
                     </Col>

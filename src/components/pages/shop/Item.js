@@ -1,19 +1,22 @@
 import React from "react";
 import { Card } from "antd";
-import "./ItemCard.css";
 
 const { Meta } = Card;
 
-const Item = ({ name, price }) => {
+const Item = ({ name, price, priceUnit }) => {
   return (
     <div>
       <Card
         className="card"
         hoverable
-        style={{ width: 240 }}
-        cover={<img alt="Place of image" src="" />}
+        style={{ width: 240, backgroundColor: "#db0f29" }}
+        // cover={<img alt="Place of image" src="" />}
       >
-        <Meta title={name} description={price} />
+        <Meta
+          title={name}
+          description={price + " " + priceUnit}
+          style={{ textAlign: "center" }}
+        />
       </Card>
     </div>
   );
