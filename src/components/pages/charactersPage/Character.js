@@ -4,7 +4,7 @@ function Character(props) {
   return (
     <div
       class="card"
-      style={{ width: "18rem", background: "#F9EAD7", padding: "15px" }}
+      style={{ width: "18rem", background: "#db0f29", padding: "15px" }}
     >
       <img
         src={props.character.img}

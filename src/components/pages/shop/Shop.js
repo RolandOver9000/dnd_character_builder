@@ -7,12 +7,12 @@ import { Layout, Menu } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { Row, Col } from "antd";
 import "antd/dist/antd.css";
+import ShopImage from "./shopStyle/shop.jpg";
 
 const Shop = () => {
-  const [items, setItems] = useContext(ItemContext);
-  const [itemCategories, setItemCategories] = useContext(CategoryContext);
+  const { itemDetails } = useContext(ItemContext);
+  const { itemCategories } = useContext(CategoryContext);
   const { Header, Content, Footer, Sider } = Layout;
-  console.log(items);
 
   return (
     <div>
@@ -32,7 +32,7 @@ const Shop = () => {
             style={{
               color: "white",
               backgroundColor: "black",
-              borderColor: "#db0f29",
+              border: "5px #db0f29",
               borderWidth: "3px",
             }}
             mode="inline"
@@ -44,7 +44,6 @@ const Shop = () => {
                 <span className="nav-text">{category.name}</span>
               </Menu.Item>
             ))}
-            <span>=======================</span>
           </Menu>
         </Sider>
         <Layout>
@@ -53,14 +52,12 @@ const Shop = () => {
             style={{
               padding: 0,
               backgroundColor: "black",
-              border: "5px #db0f29",
             }}
           >
             <Content>
               <h2
                 style={{
                   color: "white",
-                  padding: "20px",
                   verticalAlign: "middle",
                 }}
               >
@@ -70,18 +67,23 @@ const Shop = () => {
           </Header>
           <Content style={{ margin: "24px 16px 0" }}>
             <div
-              className="site-layout-background"
-              style={{ padding: 24, minHeight: 360 }}
+              style={{
+                minHeight: 360,
+              }}
             >
               <div>
                 <Row gutter={[16, 24]}>
-                  {items.map((item) => (
-                    <Col className="gutter-row" span={6}>
+                  {itemDetails.map((itemDetail) => (
+                    <Col
+                      className="gutter-row"
+                      key={itemDetails._id + "1"}
+                      span={6}
+                    >
                       <Item
-                        name={item.name}
-                        price={item.cost.quantity}
-                        priceUnit={item.cost.unit}
-                        key={item._id}
+                        name={itemDetail.name}
+                        price={itemDetail.cost.quantity}
+                        priceUnit={itemDetail.cost.unit}
+                        key={itemDetails._id}
                       />
                     </Col>
                   ))}

@@ -3,7 +3,7 @@ import Axios from "axios";
 
 export const MonsterDetailContext = createContext();
 
-export default function MonsterDetailProvider(props) {
+export const MonsterDetailProvider = (props) => {
   const [monsterDetail, setMonsterDetail] = useState(null);
 
   const getMonsterDetail = (monsterIndex) => {
@@ -19,4 +19,4 @@ export default function MonsterDetailProvider(props) {
       {props.children}
     </MonsterDetailContext.Provider>
   );
-}
+};

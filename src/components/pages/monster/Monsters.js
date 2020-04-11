@@ -1,14 +1,5 @@
-import React, {
-  Component,
-  useState,
-  useEffect,
-  useLayoutEffect,
-  forceUpdate,
-  useContext,
-} from "react";
-import { Router, Route, Link, RouteHandler } from "react-router-dom";
+import React, { useContext } from "react";
 
-import Axios from "axios";
 import Monster from "./Monster";
 import { MonsterContext } from "./MonsterContext";
 
@@ -33,7 +24,7 @@ const Monsters = (props) => {
         justifyContent: `space-around`,
       }}
     >
-      {monsters.map((monster) => (
+      {monsters.slice(0, 10).map((monster) => (
         <Monster
           name={monster.name}
           index={monster.index}

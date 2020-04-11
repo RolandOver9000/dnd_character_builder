@@ -5,21 +5,28 @@ export const ItemContext = createContext();
 
 export const ItemProvider = (props) => {
   const [items, setItems] = useState([]);
+  const [itemDetails, setItemDetails] = useState([]);
 
   useEffect(() => {
     Axios.get("https://www.dnd5eapi.co/api/equipment").then((resp) => {
-      resp.data.results.map((item) => {
-        return Axios.get("https://www.dnd5eapi.co" + item.url).then(
-          (itemObject) => {
-            setItems((items) => [...items, itemObject.data]);
-          }
-        );
-      });
+      setItems(resp.data.results);
     });
   }, []);
 
+  useEffect(() => {
+    Promise.all(
+      items.map((item) => {
+        Axios.get("https://www.dnd5eapi.co" + item.url).then(
+          (resp) =>
+            setItemDetails((prevItemDetails) => [...prevItemDetails, resp.data])
+          // setItemDetails((itemDetails) => [...itemDetails, resp.data])
+        );
+      })
+    );
+  }, [items]);
+
   return (
-    <ItemContext.Provider value={[items, setItems]}>
+    <ItemContext.Provider value={{ itemDetails, setItemDetails }}>
       {props.children}
     </ItemContext.Provider>
   );
