@@ -11,9 +11,9 @@ import { Router, Route, Link, RouteHandler } from "react-router-dom";
 import styled from "styled-components";
 import Axios from "axios";
 import Monster from "./Monster";
-import { MonsterContext } from "./MonsterContext";
-import "./styling.css";
-import { MonsterDetailContext } from "./MonsterDetailContext";
+import { MonsterContext } from "../context/MonsterContext";
+import "../style/styling.css";
+import { MonsterDetailContext } from "../context/MonsterDetailContext";
 
 const Monsters = (props) => {
   const [monsters, setMonsters] = useContext(MonsterContext);

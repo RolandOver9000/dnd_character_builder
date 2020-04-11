@@ -3,17 +3,17 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import CharacterSheet from "./components/pages/character/characterSheet";
 import Header from "./components/layout/Header";
 
-import { ItemProvider } from "./components/pages/shop/ItemContext";
-import { CategoryProvider } from "./components/pages/shop/CategoryContext";
-import Shop from "./components/pages/shop/Shop";
+import { ItemProvider } from "./components/pages/shop/context/ItemContext";
+import { CategoryProvider } from "./components/pages/shop/context/CategoryContext";
+import Shop from "./components/pages/shop/element/Shop";
 
 import { CharacterProvider } from "./components/context/CharacterContext";
 
-import { MonsterProvider } from "./components/pages/monster/MonsterContext";
-import Monsters from "./components/pages/monster/Monsters";
-import Monster from "./components/pages/monster/Monster";
-import MonsterDetail from "./components/pages/monster/MonsterDetail";
-import { MonsterDetailProvider } from "./components/pages/monster/MonsterDetailContext";
+import { MonsterProvider } from "./components/pages/monster/context/MonsterContext";
+import Monsters from "./components/pages/monster/element/Monsters";
+import Monster from "./components/pages/monster/element/Monster";
+import MonsterDetail from "./components/pages/monster/element/MonsterDetail";
+import { MonsterDetailProvider } from "./components/pages/monster/context/MonsterDetailContext";
 
 import Characters from "./components/pages/charactersPage/Characters";
 import AddCharacter from "./components/pages/charactersPage/AddCharacter";

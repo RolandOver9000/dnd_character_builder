@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { MonsterDetailContext } from "./MonsterDetailContext";
+import { MonsterDetailContext } from "../context/MonsterDetailContext";
 
 const Monster = ({ name, index }) => {
   const { getMonsterDetail } = useContext(MonsterDetailContext);

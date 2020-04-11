@@ -1,3 +1,5 @@
+//ant designt still hereeee
+
 import React from "react";
 import { Card } from "antd";
 
@@ -9,7 +11,7 @@ const Item = ({ name, price, priceUnit }) => {
       <Card
         className="card"
         hoverable
-        style={{ width: 240, backgroundColor: "#db0f29" }}
+        style={{ width: "100%", backgroundColor: "#db0f29" }}
         // cover={<img alt="Place of image" src="" />}
       >
         <Meta
