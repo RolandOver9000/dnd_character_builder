@@ -7,6 +7,9 @@ import { ItemProvider } from "./components/pages/shop/context/ItemContext";
 import { CategoryProvider } from "./components/pages/shop/context/CategoryContext";
 import Shop from "./components/pages/shop/element/Shop";
 
+import GlobalFont from "./components/style/GlobalFontStyle";
+import AppFontStyle from "./components/style/AppStyle";
+
 import { CharacterProvider } from "./components/context/CharacterContext";
 
 import { MonsterProvider } from "./components/pages/monster/context/MonsterContext";
@@ -21,30 +24,33 @@ import AddCharacter from "./components/pages/charactersPage/AddCharacter";
 function App() {
   return (
     <Router>
-      <div className="App">
-        <Header />
-        <Route exact path="/" />
+      <GlobalFont />
+      <AppFontStyle>
+        <div className="App">
+          <Header />
+          <Route exact path="/" />
 
-        <ItemProvider>
-          <CategoryProvider>
-            <Route path="/shop" component={Shop} />
-          </CategoryProvider>
-        </ItemProvider>
+          <ItemProvider>
+            <CategoryProvider>
+              <Route path="/shop" component={Shop} />
+            </CategoryProvider>
+          </ItemProvider>
 
-        <CharacterProvider>
-          <Route path="/characters" component={Characters} />
-          <Route path="/add-new-character" component={AddCharacter} />
-        </CharacterProvider>
-        <Route path="/new-character" component={CharacterSheet} />
+          <CharacterProvider>
+            <Route path="/characters" component={Characters} />
+            <Route path="/add-new-character" component={AddCharacter} />
+          </CharacterProvider>
+          <Route path="/new-character" component={CharacterSheet} />
 
-        <MonsterProvider>
-          <MonsterDetailProvider>
-            <Route path="/monsters" component={Monsters} />
-            <Route path="/monster" component={Monster} />
-            <Route path="/MonsterDetail/:name" component={MonsterDetail} />
-          </MonsterDetailProvider>
-        </MonsterProvider>
-      </div>
+          <MonsterProvider>
+            <MonsterDetailProvider>
+              <Route path="/monsters" component={Monsters} />
+              <Route path="/monster" component={Monster} />
+              <Route path="/MonsterDetail/:name" component={MonsterDetail} />
+            </MonsterDetailProvider>
+          </MonsterProvider>
+        </div>
+      </AppFontStyle>
     </Router>
   );
 }

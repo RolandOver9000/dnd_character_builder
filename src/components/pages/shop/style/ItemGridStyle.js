@@ -11,3 +11,4 @@ export const ItemGridStyle = makeStyles((theme) => ({
     backgroundColor: "black",
   },
 }));
+//justify-content: center;

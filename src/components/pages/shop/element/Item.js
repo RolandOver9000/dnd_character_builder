@@ -1,26 +1,20 @@
-//ant designt still hereeee
-
 import React from "react";
-import { Card } from "antd";
+import { Card, Col } from "antd";
+import ItemStyle from "../style/ItemStyle";
 
 const { Meta } = Card;
 
 const Item = ({ name, price, priceUnit }) => {
   return (
-    <div>
-      <Card
-        className="card"
-        hoverable
-        style={{ width: "100%", backgroundColor: "#db0f29" }}
-        // cover={<img alt="Place of image" src="" />}
-      >
-        <Meta
-          title={name}
-          description={price + " " + priceUnit}
-          style={{ textAlign: "center" }}
-        />
-      </Card>
-    </div>
+    <ItemStyle>
+      <div>
+        <Card className="card-content" hoverable>
+          <p className="card-title">{name}</p>
+          <br />
+          <p className="card-value">{price + " " + priceUnit}</p>
+        </Card>
+      </div>
+    </ItemStyle>
   );
 };
 
