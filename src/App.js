@@ -5,7 +5,7 @@ import Header from "./components/layout/Header";
 
 import { ItemProvider } from "./components/pages/shop/context/ItemContext";
 import { CategoryProvider } from "./components/pages/shop/context/CategoryContext";
-import Shop from "./components/pages/shop/element/Shop";
+import Shop from "./components/pages/shop/element/ItemGrid";
 
 import GlobalFont from "./components/style/GlobalFontStyle";
 import AppFontStyle from "./components/style/AppStyle";

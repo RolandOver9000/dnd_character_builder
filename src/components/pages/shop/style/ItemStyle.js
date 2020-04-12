@@ -44,4 +44,9 @@ export default styled.div`
   & .ant-card-bordered {
     border: 2px solid black;
   }
+
+  & .card-container {
+    float: right;
+    width: 85%;
+  }
 `;

@@ -1,14 +1,12 @@
-import { makeStyles } from "@material-ui/core/styles";
+import styled from "styled-components";
 
-export const ItemGridStyle = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(1),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-    backgroundColor: "black",
-  },
-}));
-//justify-content: center;
+export default styled.div`
+  & .category-menu {
+    width: 15%;
+    float: left;
+  }
+
+  & .categroy {
+    /* background-image: url() */
+  }
+`;

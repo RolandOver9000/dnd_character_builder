@@ -7,7 +7,7 @@ const { Meta } = Card;
 const Item = ({ name, price, priceUnit }) => {
   return (
     <ItemStyle>
-      <div>
+      <div className="card-container">
         <Card className="card-content" hoverable>
           <p className="card-title">{name}</p>
           <br />

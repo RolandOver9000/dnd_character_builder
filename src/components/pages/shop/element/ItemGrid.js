@@ -1,23 +1,43 @@
 import React, { useContext } from "react";
-import { Row } from "antd";
+import { Row, Col } from "antd";
+import ShopStyle from "../style/ItemGridStyle";
 
 import Item from "./Item";
 
 import { ItemContext } from "../context/ItemContext";
+import { CategoryContext } from "../context/CategoryContext";
 
-export const ItemGrid = (props) => {
+export const Shop = (props) => {
   const { itemDetails } = useContext(ItemContext);
+  const { itemCategories } = useContext(CategoryContext);
 
   return (
-    <Row>
-      {itemDetails.map((itemDetail) => (
-        <Item
-          name={itemDetail.name}
-          price={itemDetail.cost.quantity}
-          priceUnit={itemDetail.cost.unit}
-          key={itemDetails._id}
-        />
-      ))}
-    </Row>
+    <ShopStyle>
+      <div>
+        <div className="category-menu">
+          <Col>
+            {itemCategories.map((category) => (
+              <Row className="category" button key={category.index}>
+                <p>{category.name}</p>
+              </Row>
+            ))}
+          </Col>
+        </div>
+        <div className="item-grid">
+          <Row>
+            {itemDetails.map((itemDetail) => (
+              <Item
+                name={itemDetail.name}
+                price={itemDetail.cost.quantity}
+                priceUnit={itemDetail.cost.unit}
+                key={itemDetails._id}
+              />
+            ))}
+          </Row>
+        </div>
+      </div>
+    </ShopStyle>
   );
 };
+
+export default Shop;
