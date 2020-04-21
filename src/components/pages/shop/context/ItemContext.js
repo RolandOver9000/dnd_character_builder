@@ -4,7 +4,6 @@ import Axios from "axios";
 export const ItemContext = createContext();
 
 export const ItemProvider = (props) => {
-  const [items, setItems] = useState([]);
   const [itemDetails, setItemDetails] = useState([]);
 
   useEffect(() => {

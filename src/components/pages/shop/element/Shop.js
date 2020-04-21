@@ -10,7 +10,7 @@ import { ShopStyle } from "../style/ShopStyle";
 import { CategoryContext } from "../context/CategoryContext";
 import { ItemGrid } from "./ItemGrid";
 
-export const ShopGood = () => {
+export const Shop = () => {
   const classes = ShopStyle();
   const { itemCategories } = useContext(CategoryContext);
 
@@ -43,4 +43,4 @@ export const ShopGood = () => {
   );
 };
 
-export default ShopGood;
+export default Shop;

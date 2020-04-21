@@ -21,14 +21,16 @@ import { MonsterDetailProvider } from "./components/pages/monster/context/Monste
 import Characters from "./components/pages/charactersPage/Characters";
 import AddCharacter from "./components/pages/charactersPage/AddCharacter";
 
+import { Home } from "./components/pages/home/element/Home";
+
 function App() {
   return (
     <Router>
       <GlobalStyle />
       <AppFontStyle>
+        <Route exact path="/" component={Home} />
         <div className="App">
           <Header />
-          <Route exact path="/" />
 
           <ItemProvider>
             <CategoryProvider>
