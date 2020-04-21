@@ -7,6 +7,7 @@ const AddCharacter = (props) => {
   const skills = value.skills;
   const classes = value.classes;
   const stats = value.stats;
+
   const [statPointsLeft, setStatPointsLeft] = useState(20);
   const [skillPointsLeft, setskillPointsLeft] = useState(10);
 
@@ -15,12 +16,29 @@ const AddCharacter = (props) => {
 
   const [characterClass, setCharacterClass] = useState("");
   const updateClass = (e) => setCharacterClass(e.target.value);
-  for (const stat of stats) {
-    stat.lvl = 1;
-  }
-  for (const skill of skills) {
-    skill.lvl = 0;
-  }
+
+  
+  const increaseStat = (e) => {
+    if (statPointsLeft > 0) {
+      setStatPointsLeft(statPointsLeft - 1);
+      console.log(e.target.value)
+
+    } else {
+      console.log("out of stat points");
+    }
+  };
+
+  const decreaseStat = (e, stat) => {
+    if (parseInt(stat.lvl) > 0) {
+      setStatPointsLeft(statPointsLeft + 1);
+      console.log(stat);
+      console.log(e.targer.value);
+
+      stat.lvl--;
+    } else {
+      console.log("stat lvl cant be lower then 0");
+    }
+  };
 
   return (
     <div>
@@ -38,9 +56,9 @@ const AddCharacter = (props) => {
               onChange={updateCharacterName}
             ></input>
             Class:{" "}
-            <select>
+            <select onClick={updateClass}>
               {classes.map((clas) => (
-                <option value={clas.name} onChange={updateClass}>
+                <option value={clas.name} key={clas.index}>
                   {clas.name}
                 </option>
               ))}
@@ -48,21 +66,23 @@ const AddCharacter = (props) => {
           </form>
         </div>
       </div>
+
       <div className="row" style={{ padding: "15px" }}>
         <div id="stats" className="col-4">
           <h4>Stats: Stat points left: {statPointsLeft}</h4>
           {stats.map((stat) => (
-            <p>
-              <IncrementButton> - </IncrementButton>
+            <p key={stat.index}>
+              <IncrementButton value ={stat} onClick={decreaseStat}> - </IncrementButton>
               {stat.name}: {stat.lvl}
-              <IncrementButton> + </IncrementButton>
+              <IncrementButton onClick={increaseStat}> + </IncrementButton>
             </p>
           ))}
         </div>
+
         <div id="skills" className="col-4" style={{ padding: "5px" }}>
           <h4> Skills: Skill points left: {skillPointsLeft}</h4>
           {skills.map((skill) => (
-            <p>
+            <p key={skill.index}>
               <IncrementButton> - </IncrementButton>
               {skill.name}: {skill.lvl}
               <IncrementButton> + </IncrementButton>

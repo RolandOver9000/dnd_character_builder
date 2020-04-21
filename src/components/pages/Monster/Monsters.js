@@ -1,14 +1,4 @@
-import React, {
-  Component,
-  useState,
-  useEffect,
-  useLayoutEffect,
-  forceUpdate,
-  useContext,
-} from "react";
-import { Router, Route, Link, RouteHandler } from "react-router-dom";
-
-import Axios from "axios";
+import React, { useContext } from "react";
 import Monster from "./Monster";
 import { MonsterContext } from "./MonsterContext";
 

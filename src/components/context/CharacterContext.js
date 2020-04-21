@@ -7,6 +7,12 @@ export const CharacterProvider = (props) => {
   const [skills, setSkills] = useState([]);
   const [classes, setClasses] = useState([]);
   const [stats, setStats] = useState([]);
+  for (const stat of stats) {
+    stat.lvl = 1;
+  }
+  for (const skill of skills) {
+    skill.lvl = 0;
+  }
   const [characters, setCharacters] = useState([
     {
       id: 1,
