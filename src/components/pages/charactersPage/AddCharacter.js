@@ -1,44 +1,76 @@
 import { CharacterContext } from "../../context/CharacterContext";
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import IncrementButton from "../../elements/IncrementButton";
+import { v1 as uuid4 } from "uuid";
+import { Link } from "react-router-dom";
 
 const AddCharacter = (props) => {
   const value = useContext(CharacterContext);
   const skills = value.skills;
   const classes = value.classes;
   const stats = value.stats;
-
-  const [statPointsLeft, setStatPointsLeft] = useState(20);
-  const [skillPointsLeft, setskillPointsLeft] = useState(10);
-
+  const [characters, setCharacters] = value.characters;
+  const [statPointsLeft, setStatPointsLeft] = useState(16);
+  const [skillPointsLeft, setSkillPointsLeft] = useState(10);
+  const {addNewCharacter} = useContext(CharacterContext);
   const [characterName, setCharacterName] = useState("");
   const updateCharacterName = (e) => setCharacterName(e.target.value);
 
   const [characterClass, setCharacterClass] = useState("");
   const updateClass = (e) => setCharacterClass(e.target.value);
 
+  const setStatLvl = (stat, modifier) => {
+    if (stat.lvl + modifier === 0 || stat.lvl + modifier > 10) {
+      console.log("skill lvl cant be lower then 1 and higher then 10");
+    } else if (statPointsLeft - modifier < 0) {
+      console.log("out of statpoints");
+    } else {
+      stat.lvl = stat.lvl + modifier;
+      setStatPointsLeft(statPointsLeft - modifier);
+    }
+  };
+
+  const setSkillLvl = (skill, modifier) => {
+    if (skill.lvl + modifier < 0 || skill.lvl + modifier > 10) {
+      console.log("skill lvl cant be lower then 1 and higher then 10");
+    } else if (skillPointsLeft - modifier < 0) {
+      console.log("out of skillpoints");
+    } else {
+      skill.lvl = skill.lvl + modifier;
+      setSkillPointsLeft(skillPointsLeft - modifier);
+    }
+  };
+
+  const createNewCharacter = () => {
+    const character=  {
+      id: uuid4(),
+      name: characterName,
+      class: characterClass,
+      characterLvl: 1,
+      img:
+        "https://cdnb.artstation.com/p/assets/images/images/007/886/327/large/samuel-marcano-andres1web.jpg?1509138117",
+      stats: stats,
+      skills: skills,
+      inventory: [{ money: "100gp" }],
+      skillPoints: skillPointsLeft,
+      statpoints: statPointsLeft,
+    }
+    console.log(character)
+    addNewCharacter(character);
+    console.log(characters)
+  };
   
-  const increaseStat = (e) => {
-    if (statPointsLeft > 0) {
-      setStatPointsLeft(statPointsLeft - 1);
-      console.log(e.target.value)
+  
+  useEffect(() => {
+    console.log("useeffect stats");
+  }, [stats]);
+  useEffect(() => {
+    console.log("useeffect skills");
+  }, [skills]);
+  useEffect(() => {
+    console.log("useeffect characters");
+  }, [characters]);
 
-    } else {
-      console.log("out of stat points");
-    }
-  };
-
-  const decreaseStat = (e, stat) => {
-    if (parseInt(stat.lvl) > 0) {
-      setStatPointsLeft(statPointsLeft + 1);
-      console.log(stat);
-      console.log(e.targer.value);
-
-      stat.lvl--;
-    } else {
-      console.log("stat lvl cant be lower then 0");
-    }
-  };
 
   return (
     <div>
@@ -63,6 +95,9 @@ const AddCharacter = (props) => {
                 </option>
               ))}
             </select>
+            <Link to="/characters">
+              <button onClick={createNewCharacter}>Create Character</button>
+            </Link>
           </form>
         </div>
       </div>
@@ -72,9 +107,15 @@ const AddCharacter = (props) => {
           <h4>Stats: Stat points left: {statPointsLeft}</h4>
           {stats.map((stat) => (
             <p key={stat.index}>
-              <IncrementButton value ={stat} onClick={decreaseStat}> - </IncrementButton>
+              <IncrementButton onClick={() => setStatLvl(stat, -1)}>
+                {" "}
+                -{" "}
+              </IncrementButton>
               {stat.name}: {stat.lvl}
-              <IncrementButton onClick={increaseStat}> + </IncrementButton>
+              <IncrementButton onClick={() => setStatLvl(stat, 1)}>
+                {" "}
+                +{" "}
+              </IncrementButton>
             </p>
           ))}
         </div>
@@ -83,14 +124,19 @@ const AddCharacter = (props) => {
           <h4> Skills: Skill points left: {skillPointsLeft}</h4>
           {skills.map((skill) => (
             <p key={skill.index}>
-              <IncrementButton> - </IncrementButton>
+              <IncrementButton onClick={() => setSkillLvl(skill, -1)}>
+                {" "}
+                -{" "}
+              </IncrementButton>
               {skill.name}: {skill.lvl}
-              <IncrementButton> + </IncrementButton>
+              <IncrementButton onClick={() => setSkillLvl(skill, 1)}>
+                {" "}
+                +{" "}
+              </IncrementButton>
             </p>
           ))}
         </div>
       </div>
-      <button>Create</button>
     </div>
   );
 };
