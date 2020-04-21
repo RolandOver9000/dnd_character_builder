@@ -7,7 +7,7 @@ import { ItemProvider } from "./components/pages/shop/context/ItemContext";
 import { CategoryProvider } from "./components/pages/shop/context/CategoryContext";
 import Shop from "./components/pages/shop/element/ItemGrid";
 
-import GlobalFont from "./components/style/GlobalFontStyle";
+import GlobalStyle from "./components/style/GlobalStyle";
 import AppFontStyle from "./components/style/AppStyle";
 
 import { CharacterProvider } from "./components/context/CharacterContext";
@@ -24,7 +24,7 @@ import AddCharacter from "./components/pages/charactersPage/AddCharacter";
 function App() {
   return (
     <Router>
-      <GlobalFont />
+      <GlobalStyle />
       <AppFontStyle>
         <div className="App">
           <Header />

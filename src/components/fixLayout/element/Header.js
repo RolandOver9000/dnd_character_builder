@@ -13,9 +13,24 @@ function Header() {
           src={DnDLogo}
           style={{ width: "7%", height: "7%" }}
         />
-        <h1>Dungeons & Dragons</h1>
-        <Link to="/">Home</Link> | <Link to="/characters">Characters</Link> |{" "}
-        <Link to="/monsters">Monsters</Link> | <Link to="/shop">Shop</Link>
+        {/* <h1>Dungeons & Dragons</h1> */}
+        <div>
+          <Link className="link" to="/">
+            Home
+          </Link>
+          |{"   "}
+          <Link className="link" to="/characters">
+            Characters
+          </Link>
+          |{"   "}
+          <Link className="link" to="/monsters">
+            Monsters
+          </Link>
+          |{"   "}
+          <Link className="link" to="/shop">
+            Shop
+          </Link>
+        </div>
       </header>
     </HeaderStyle>
   );
