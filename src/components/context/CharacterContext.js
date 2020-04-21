@@ -38,18 +38,6 @@ export const CharacterProvider = (props) => {
   ]);
   const addNewCharacter = (character) => {
     setCharacters([...characters,  character]
-      // {]
-      // id: character.id,
-      // name: character.name,
-      // class: character.class,
-      // characterLvl: character.characterLvl,
-      // img: character.img,
-      // stats: character.stats,
-      // skills: character.skills,
-      // inventory: character.inventory,
-      // statPointsLeft: character.statPointsLeft,
-      // skillPointsLeft: character.skillPointsLeft,
-    // }
     );
   };
 

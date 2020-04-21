@@ -12,7 +12,7 @@ const AddCharacter = (props) => {
   const [characters, setCharacters] = value.characters;
   const [statPointsLeft, setStatPointsLeft] = useState(16);
   const [skillPointsLeft, setSkillPointsLeft] = useState(10);
-  const {addNewCharacter} = useContext(CharacterContext);
+  const { addNewCharacter } = useContext(CharacterContext);
   const [characterName, setCharacterName] = useState("");
   const updateCharacterName = (e) => setCharacterName(e.target.value);
 
@@ -42,25 +42,26 @@ const AddCharacter = (props) => {
   };
 
   const createNewCharacter = () => {
-    const character=  {
+    const character = {
       id: uuid4(),
       name: characterName,
       class: characterClass,
       characterLvl: 1,
       img:
-        "https://cdnb.artstation.com/p/assets/images/images/007/886/327/large/samuel-marcano-andres1web.jpg?1509138117",
+      "https://cdnb.artstation.com/p/assets/images/images/007/886/327/large/samuel-marcano-andres1web.jpg?1509138117",
       stats: stats,
       skills: skills,
       inventory: [{ money: "100gp" }],
       skillPoints: skillPointsLeft,
       statpoints: statPointsLeft,
-    }
-    console.log(character)
+    };
+    console.log(character);
     addNewCharacter(character);
-    console.log(characters)
+    console.log(characters);
   };
-  
-  
+
+  const pic =
+    "https://cdnb.artstation.com/p/assets/images/images/007/886/327/large/samuel-marcano-andres1web.jpg?1509138117";
   useEffect(() => {
     console.log("useeffect stats");
   }, [stats]);
@@ -70,7 +71,6 @@ const AddCharacter = (props) => {
   useEffect(() => {
     console.log("useeffect characters");
   }, [characters]);
-
 
   return (
     <div>
