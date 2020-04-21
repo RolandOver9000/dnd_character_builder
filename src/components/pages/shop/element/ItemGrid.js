@@ -18,7 +18,7 @@ export const Shop = (props) => {
           <Col>
             {itemCategories.map((category) => (
               <Row className="category" button key={category.index}>
-                <p>{category.name}</p>
+                <p className="category-name">{category.name}</p>
               </Row>
             ))}
           </Col>

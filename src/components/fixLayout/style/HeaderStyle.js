@@ -7,8 +7,10 @@ export default styled.div`
     text-align: center;
     padding: 10px;
   }
-  & .link {
+  & .link,
+  .separator {
     color: #fff;
+    font-size: 40px;
   }
   & h1 {
     margin: 0;

@@ -18,15 +18,15 @@ function Header() {
           <Link className="link" to="/">
             Home
           </Link>
-          |{"   "}
+          <span className="separator"> | </span>
           <Link className="link" to="/characters">
             Characters
           </Link>
-          |{"   "}
+          <span className="separator"> | </span>
           <Link className="link" to="/monsters">
             Monsters
           </Link>
-          |{"   "}
+          <span className="separator"> | </span>
           <Link className="link" to="/shop">
             Shop
           </Link>
