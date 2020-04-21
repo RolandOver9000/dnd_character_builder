@@ -28,8 +28,8 @@ export const Shop = (props) => {
             {itemDetails.map((itemDetail) => (
               <Item
                 name={itemDetail.name}
-                price={itemDetail.cost.quantity}
-                priceUnit={itemDetail.cost.unit}
+                price={itemDetail.price}
+                priceUnit={itemDetail.unit}
                 key={itemDetails._id}
               />
             ))}

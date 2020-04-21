@@ -8,22 +8,24 @@ export const ItemProvider = (props) => {
   const [itemDetails, setItemDetails] = useState([]);
 
   useEffect(() => {
-    Axios.get("https://www.dnd5eapi.co/api/equipment").then((resp) => {
-      setItems(resp.data.results);
+    Axios.get("http://localhost:8080/item/list").then((items) => {
+      items.data.map((singleItem) =>
+        setItemDetails((prevItemDetails) => [...prevItemDetails, singleItem])
+      );
     });
   }, []);
 
-  useEffect(() => {
-    Promise.all(
-      items.map((item) => {
-        Axios.get("https://www.dnd5eapi.co" + item.url).then(
-          (resp) =>
-            setItemDetails((prevItemDetails) => [...prevItemDetails, resp.data])
-          // setItemDetails((itemDetails) => [...itemDetails, resp.data])
-        );
-      })
-    );
-  }, [items]);
+  // useEffect(() => {
+  //   Promise.all(
+  //     items.map((item) => {
+  //       Axios.get("https://www.dnd5eapi.co" + item.url).then(
+  //         (resp) =>
+  //           setItemDetails((prevItemDetails) => [...prevItemDetails, resp.data])
+  //         // setItemDetails((itemDetails) => [...itemDetails, resp.data])
+  //       );
+  //     })
+  //   );
+  // }, [items]);
 
   return (
     <ItemContext.Provider value={{ itemDetails, setItemDetails }}>

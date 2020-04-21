@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import CharacterSheet from "./components/pages/character/characterSheet";
-import Header from "./components/layout/Header";
+import Header from "./components/fixLayout/element/Header";
 
 import { ItemProvider } from "./components/pages/shop/context/ItemContext";
 import { CategoryProvider } from "./components/pages/shop/context/CategoryContext";
