@@ -1,6 +1,6 @@
-import { CharacterContext } from "../../context/CharacterContext";
+import { CharacterContext } from "./context/CharacterContext";
 import React, { useContext, useState, useEffect } from "react";
-import IncrementButton from "../../elements/IncrementButton";
+import IncrementButton from "./elements/IncrementButton";
 import { v1 as uuid4 } from "uuid";
 import { Link } from "react-router-dom";
 
