@@ -45,7 +45,7 @@ const AddCharacter = (props) => {
     const character = {
       id: uuid4(),
       name: characterName,
-      class: characterClass,
+      clas: characterClass,
       characterLvl: 1,
       img:
       "https://cdnb.artstation.com/p/assets/images/images/007/886/327/large/samuel-marcano-andres1web.jpg?1509138117",

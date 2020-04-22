@@ -17,7 +17,7 @@ export const CharacterProvider = (props) => {
     {
       id: 1,
       name: "Skandar Graun",
-      class: "warrior-priest",
+      clas: "warrior-priest",
       characterLvl: 1,
       img: "https://skandargraun.eoldal.hu/img/picture/2/skandar2.jpg",
       stats: [],
@@ -27,7 +27,7 @@ export const CharacterProvider = (props) => {
     {
       id: 2,
       name: "Peltar",
-      class: "wizard",
+      clas: "wizard",
       characterLvl: 10,
       img:
         "https://i.pinimg.com/originals/95/ff/34/95ff3439cd8f575ae1807b1482514db3.jpg",

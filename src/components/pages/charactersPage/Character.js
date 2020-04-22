@@ -15,7 +15,7 @@ function Character(props) {
       ></img>
       <div className="card-body">
         <h5 className="card-title">name: {props.character.name}</h5>
-        <p className="card-text">class: {props.character.class}</p>
+        <p className="card-text">class: {props.character.clas}</p>
         <p>Lvl: {props.character.characterLvl}</p>
       </div>
     </div>
