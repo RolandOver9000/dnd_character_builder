@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { MonsterContext } from "./MonsterContext";
-import "./styling.css";
-import { MonsterDetailContext } from "./MonsterDetailContext";
+import { MonsterContext } from "../context/MonsterContext";
+import "../style/styling.css";
+import { MonsterDetailContext } from "../context/MonsterDetailContext";
 
 const Monsters = (props) => {
   const [monsters, setMonsters] = useContext(MonsterContext);

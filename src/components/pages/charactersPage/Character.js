@@ -3,8 +3,8 @@ import React from "react";
 function Character(props) {
   return (
     <div
-      className="card"
-      style={{ width: "18rem", background: "#F9EAD7", padding: "15px" }}
+      class="card"
+      style={{ width: "18rem", background: "#db0f29", padding: "15px" }}
     >
       <img
         src={props.character.img}

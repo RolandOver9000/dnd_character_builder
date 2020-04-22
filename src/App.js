@@ -1,53 +1,58 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import CharacterSheet from "./components/pages/character/characterSheet";
-import Shop from "./components/pages/shop/shop";
-import Header from "./components/layout/Header";
+import Header from "./components/fixLayout/element/Header";
 
-import { ItemProvider } from "./components/pages/shop/ItemContext";
-import { CategoryProvider } from "./components/pages/shop/CategoryContext";
-import { CharacterProvider } from "./components/context/CharacterContext";
-import { MonsterProvider } from "./components/pages/Monster/MonsterContext";
+import { ItemProvider } from "./components/pages/shop/context/ItemContext";
+import { CategoryProvider } from "./components/pages/shop/context/CategoryContext";
+import Shop from "./components/pages/shop/element/ItemGrid";
 
-import Monsters from "./components/pages/Monster/Monsters";
+import GlobalStyle from "./components/style/GlobalStyle";
+import AppFontStyle from "./components/style/AppStyle";
+
+import { CharacterProvider } from "./components/pages/charactersPage/context/CharacterContext";
+
+import { MonsterProvider } from "./components/pages/Monster/context/MonsterContext";
+import Monsters from "./components/pages/Monster/element/Monsters";
+import Monster from "./components/pages/Monster/element/Monster";
+import MonsterDetail from "./components/pages/Monster/element/MonsterDetail";
+import { MonsterDetailProvider } from "./components/pages/Monster/context/MonsterDetailContext";
+
 import Characters from "./components/pages/charactersPage/Characters";
 import AddCharacter from "./components/pages/charactersPage/AddCharacter";
-import Monster from "./components/pages/Monster/Monster";
-import MonsterDetail from "./components/pages/Monster/MonsterDetail";
-import MonsterDetailProvider from "./components/pages/Monster/MonsterDetailContext";
+
+import { Home } from "./components/pages/home/element/Home";
 
 function App() {
   return (
     <Router>
-      <div className="App">
-        <Header />
-        <Route exact path="/" />
-        <Route path="/new-character" component={CharacterSheet} />
+      <GlobalStyle />
+      <AppFontStyle>
+        <div className="app">
+          <Route exact path="/" component={Home} />
+          <Header />
 
-        <ItemProvider>
-          <CategoryProvider>
-            <Route path="/shop" component={Shop} />
-          </CategoryProvider>
-        </ItemProvider>
+          <ItemProvider>
+            <CategoryProvider>
+              <Route path="/shop" component={Shop} />
+            </CategoryProvider>
+          </ItemProvider>
 
-        <CharacterProvider>
-          <Route exact path="/characters" render={(props) => <Characters />} />
-          <Route
-            exact
-            path="/add-new-character"
-            render={(props) => <AddCharacter />}
-          />
-        </CharacterProvider>
+          <CharacterProvider>
+            <Route path="/characters" component={Characters} />
+            <Route path="/add-new-character" component={AddCharacter} />
+          </CharacterProvider>
+          <Route path="/new-character" component={CharacterSheet} />
 
-        <MonsterProvider>
-          <MonsterDetailProvider>
-            <Route path="/monsters" component={Monsters} />
-
-            <Route path="/monster" component={Monster} />
-            <Route path="/MonsterDetail/:name" component={MonsterDetail} />
-          </MonsterDetailProvider>
-        </MonsterProvider>
-      </div>
+          <MonsterProvider>
+            <MonsterDetailProvider>
+              <Route path="/monsters" component={Monsters} />
+              <Route path="/monster" component={Monster} />
+              <Route path="/MonsterDetail/:name" component={MonsterDetail} />
+            </MonsterDetailProvider>
+          </MonsterProvider>
+        </div>
+      </AppFontStyle>
     </Router>
   );
 }
