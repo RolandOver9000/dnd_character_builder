@@ -9,7 +9,7 @@ const AddCharacter = (props) => {
   const skills = value.skills;
   const classes = value.classes;
   const stats = value.stats;
-  const [characters, setCharacters] = value.characters;
+  const [characters] = value.characters;
   const [statPointsLeft, setStatPointsLeft] = useState(16);
   const [skillPointsLeft, setSkillPointsLeft] = useState(10);
   const { addNewCharacter } = useContext(CharacterContext);
@@ -60,8 +60,7 @@ const AddCharacter = (props) => {
     console.log(characters);
   };
 
-  const pic =
-    "https://cdnb.artstation.com/p/assets/images/images/007/886/327/large/samuel-marcano-andres1web.jpg?1509138117";
+  
   useEffect(() => {
     console.log("useeffect stats");
   }, [stats]);
