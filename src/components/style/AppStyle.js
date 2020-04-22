@@ -9,5 +9,6 @@ export default styled.div`
   & .app {
     background-image: url(${OldPaper});
     width: 100%;
+    height: 100%;
   }
 `;

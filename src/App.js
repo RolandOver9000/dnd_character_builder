@@ -28,8 +28,8 @@ function App() {
     <Router>
       <GlobalStyle />
       <AppFontStyle>
-        <Route exact path="/" component={Home} />
-        <div className="App">
+        <div className="app">
+          <Route exact path="/" component={Home} />
           <Header />
 
           <ItemProvider>
