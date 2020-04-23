@@ -58,7 +58,7 @@ const AddCharacter = (props) => {
     };
     console.log(character);
     //enable to frontend way add created  character to characters page
-    //addNewCharacter(character);
+    addNewCharacter(character);
     console.log(characters);
     axios.defaults.headers.post["Content-Type"] =
       "application/json;charset=utf-8";
@@ -72,9 +72,10 @@ const AddCharacter = (props) => {
   useEffect(() => {
     console.log("useeffect skills");
   }, [skills]);
-  useEffect(() => {
-    console.log("useeffect characters");
-  }, [characters]);
+
+  // useEffect(() => {
+  //   console.log("useeffect characters");
+  // }, [characters]);
 
   return (
     <div>
