@@ -4,7 +4,6 @@ import HeaderStyle from "../style/HeaderStyle";
 import DnDLogo from "../style/dnd_5.png";
 
 function Header() {
-  if (window.location.pathname === "/") return null;
   return (
     <HeaderStyle>
       {/* <header style={{ headerStyle, backgroundImage: `url(${DnDLogo})` }}> */}
