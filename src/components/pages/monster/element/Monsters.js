@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 
 import Monster from "./Monster";
 import { MonsterContext } from "../context/MonsterContext";
+import { Link } from "react-router-dom";
 
 const Monsters = (props) => {
   const [monsters, setMonsters] = useContext(MonsterContext);
@@ -24,6 +25,9 @@ const Monsters = (props) => {
         justifyContent: `space-around`,
       }}
     >
+      <Link to={`/AddMonster/`}>
+        <button>Add a New Monster</button>
+      </Link>
       {monsters.slice(0, 10).map((monster) => (
         <Monster
           name={monster.name}

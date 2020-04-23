@@ -17,6 +17,7 @@ import Monsters from "./components/pages/monster/element/Monsters";
 import Monster from "./components/pages/monster/element/Monster";
 import MonsterDetail from "./components/pages/monster/element/MonsterDetail";
 import { MonsterDetailProvider } from "./components/pages/monster/context/MonsterDetailContext";
+import AddMonster from "./components/pages/monster/element/AddMonster";
 
 import Characters from "./components/pages/charactersPage/Characters";
 import AddCharacter from "./components/pages/charactersPage/AddCharacter";
@@ -51,6 +52,7 @@ function App() {
               <Route path="/MonsterDetail/:name" component={MonsterDetail} />
             </MonsterDetailProvider>
           </MonsterProvider>
+          <Route path="/AddMonster" component={AddMonster}></Route>
         </div>
       </AppFontStyle>
     </Router>
