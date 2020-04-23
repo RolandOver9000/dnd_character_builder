@@ -52,13 +52,17 @@ const AddCharacter = (props) => {
         "https://cdnb.artstation.com/p/assets/images/images/007/886/327/large/samuel-marcano-andres1web.jpg?1509138117",
       stats: stats,
       skills: skills,
-      inventory: [],
+      // inventory: [],
       skillPoints: skillPointsLeft,
       statpoints: statPointsLeft,
     };
     console.log(character);
-    //addNewCharacter(character); //enable to frontend way add created  character to characters page
+    //enable to frontend way add created  character to characters page
+    //addNewCharacter(character);
     console.log(characters);
+    axios.defaults.headers.post["Content-Type"] =
+      "application/json;charset=utf-8";
+    axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
     axios.post("http://localhost:8080/add-new-character", character);
   };
 
