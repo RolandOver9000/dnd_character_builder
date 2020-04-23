@@ -125,16 +125,16 @@ export const RegistrationForm = ({ visible, onCreate, onCancel }) => {
 
 export const RegistrationButton = () => {
   const [visible, setVisible] = useState(false);
-  const [credentials, setCredentials] = useState({});
+  const [registrationCredentials, setRegistrationCredentials] = useState({});
 
   const onCreate = (values) => {
-    setCredentials(values);
+    setRegistrationCredentials(values);
     setVisible(false);
   };
 
   useEffect(() => {
-    Axios.post("http://localhost:8080/user/add", credentials);
-  }, [credentials]);
+    Axios.post("http://localhost:8080/user/add", registrationCredentials);
+  }, [registrationCredentials]);
 
   return (
     <RegistrationStyle>
