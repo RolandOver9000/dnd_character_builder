@@ -136,7 +136,7 @@ export const RegistrationButton = () => {
     Axios.post(
       "http://localhost:8080/user/registration",
       registrationCredentials
-    );
+    ).then((resp) => console.log("This is the registration response", resp));
   }, [registrationCredentials]);
 
   return (

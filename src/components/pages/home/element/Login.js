@@ -33,7 +33,7 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
         }}
       >
         <Form.Item
-          name="Username field"
+          name="username"
           label="Username"
           rules={[
             {
@@ -72,7 +72,15 @@ export const LoginButton = () => {
   };
 
   useEffect(() => {
-    Axios.post("http://localhost:8080/user/login", loginCredentials);
+    Axios.post("http://localhost:8080/user/login", loginCredentials).then(
+      (resp) => {
+        if (resp.data !== "") {
+          console.log("User found.", resp);
+        } else {
+          console.log("User not found.");
+        }
+      }
+    );
     console.log(loginCredentials);
   }, [loginCredentials]);
 
