@@ -3,6 +3,7 @@ import React, { useContext, useState, useEffect } from "react";
 import IncrementButton from "./elements/IncrementButton";
 import { v1 as uuid4 } from "uuid";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const AddCharacter = (props) => {
   const value = useContext(CharacterContext);
@@ -48,19 +49,19 @@ const AddCharacter = (props) => {
       clas: characterClass,
       characterLvl: 1,
       img:
-      "https://cdnb.artstation.com/p/assets/images/images/007/886/327/large/samuel-marcano-andres1web.jpg?1509138117",
+        "https://cdnb.artstation.com/p/assets/images/images/007/886/327/large/samuel-marcano-andres1web.jpg?1509138117",
       stats: stats,
       skills: skills,
-      inventory: [{ money: "100gp" }],
+      inventory: [],
       skillPoints: skillPointsLeft,
       statpoints: statPointsLeft,
     };
     console.log(character);
-    addNewCharacter(character);
+    //addNewCharacter(character); //enable to frontend way add created  character to characters page
     console.log(characters);
+    axios.post("http://localhost:8080/add-new-character", character);
   };
 
-  
   useEffect(() => {
     console.log("useeffect stats");
   }, [stats]);

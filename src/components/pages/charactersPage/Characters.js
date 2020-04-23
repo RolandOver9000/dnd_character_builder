@@ -24,8 +24,8 @@ const Characters = () => {
         >
           <Row gutter={[16, 24]}>
             {characters.map((character) => (
-              <Col className="gutter-row" span={6}>
-                <Character character={character} />
+              <Col id={character.id} className="gutter-row" span={6}>
+                <Character id={character.id} character={character} />
               </Col>
             ))}
           </Row>
