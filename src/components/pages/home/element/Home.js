@@ -1,6 +1,8 @@
 import React from "react";
 import HomeStyle from "../style/HomeStyle";
-import DnDLogo from "../../../fixLayout/style/dnd_5.png";
+import DnDLogo from "../../../layout/style/dnd_5.png";
+import RegistrationForm from "./Registration";
+import LoginButton from "./Login";
 
 import { Link } from "react-router-dom";
 import { Row, Col } from "antd";
@@ -36,7 +38,11 @@ export const Home = () => {
             </div>
           </Row>
         </Col>
-        <div className="register-login">Hi there adventurer!</div>
+        <div className="register-login">
+          <p>Hi there adventurer!</p>
+          <RegistrationForm />
+          <LoginButton />
+        </div>
       </div>
     </HomeStyle>
   );
