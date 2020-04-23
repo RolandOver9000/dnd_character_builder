@@ -33,7 +33,7 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
         }}
       >
         <Form.Item
-          name="Username field"
+          name="username"
           label="Username"
           rules={[
             {
@@ -45,16 +45,17 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
           <Input />
         </Form.Item>
         <Form.Item
-          name="Password field"
+          name="password"
           label="Password"
           rules={[
             {
               required: true,
-              message: "Please give me your password.",
+              message: "Please enter your password!",
             },
           ]}
+          hasFeedback
         >
-          <Input type="textarea" />
+          <Input.Password />
         </Form.Item>
       </Form>
     </Modal>
@@ -72,7 +73,16 @@ export const LoginButton = () => {
   };
 
   useEffect(() => {
-    Axios.post("http://localhost:8080/user/add", loginCredentials);
+    Axios.post("http://localhost:8080/user/login", loginCredentials).then(
+      (resp) => {
+        if (resp.data !== "") {
+          console.log("User found.", resp);
+        } else {
+          console.log("User not found.");
+        }
+      }
+    );
+    console.log(loginCredentials);
   }, [loginCredentials]);
 
   return (

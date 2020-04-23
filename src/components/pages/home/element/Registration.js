@@ -64,7 +64,7 @@ export const RegistrationForm = ({ visible, onCreate, onCancel }) => {
           rules={[
             {
               required: true,
-              message: "Please input your password!",
+              message: "Please enter your password!",
             },
           ]}
           hasFeedback
@@ -80,7 +80,7 @@ export const RegistrationForm = ({ visible, onCreate, onCancel }) => {
           rules={[
             {
               required: true,
-              message: "Please confirm your password!",
+              message: "Your password does not match!",
             },
             ({ getFieldValue }) => ({
               validator(rule, value) {
@@ -133,7 +133,10 @@ export const RegistrationButton = () => {
   };
 
   useEffect(() => {
-    Axios.post("http://localhost:8080/user/add", registrationCredentials);
+    Axios.post(
+      "http://localhost:8080/user/registration",
+      registrationCredentials
+    ).then((resp) => console.log("This is the registration response", resp));
   }, [registrationCredentials]);
 
   return (
