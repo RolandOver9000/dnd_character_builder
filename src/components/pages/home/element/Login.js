@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Modal, Form, Input, Radio } from "antd";
+import { Button, Modal, Form, Input } from "antd";
 import LoginStyle from "../style/LoginStyle";
 
 const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {

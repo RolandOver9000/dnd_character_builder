@@ -1,32 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Input, Tooltip, Modal, Button } from "antd";
 import { QuestionCircleOutlined } from "@ant-design/icons";
 import RegistrationStyle from "../style/RegistrationStyle";
-
-const formItemLayout = {
-  labelCol: {
-    xs: {
-      span: 24,
-    },
-    sm: {
-      span: 8,
-    },
-  },
-  wrapperCol: {
-    xs: {
-      span: 24,
-    },
-    sm: {
-      span: 16,
-    },
-  },
-};
+import formItemLayout from "../style/RegistrationLayout";
+import Axios from "axios";
 
 export const RegistrationForm = ({ visible, onCreate, onCancel }) => {
   const [form] = Form.useForm();
 
   const onFinish = (values) => {
-    console.log("Received values of form: ", values);
+    console.log("(onfinish)Received values of form, onfinish: ", values);
   };
 
   return (
@@ -90,7 +73,7 @@ export const RegistrationForm = ({ visible, onCreate, onCancel }) => {
         </Form.Item>
 
         <Form.Item
-          name="confirm"
+          name="passwordConfirm"
           label="Confirm Password"
           dependencies={["password"]}
           hasFeedback
@@ -116,7 +99,7 @@ export const RegistrationForm = ({ visible, onCreate, onCancel }) => {
         </Form.Item>
 
         <Form.Item
-          name="nickname"
+          name="username"
           label={
             <span>
               Nickname&nbsp;
@@ -142,11 +125,16 @@ export const RegistrationForm = ({ visible, onCreate, onCancel }) => {
 
 export const RegistrationButton = () => {
   const [visible, setVisible] = useState(false);
+  const [credentials, setCredentials] = useState({});
 
   const onCreate = (values) => {
-    console.log("Received values of form: ", values);
+    setCredentials(values);
     setVisible(false);
   };
+
+  useEffect(() => {
+    Axios.post("http://localhost:8080/user/add", credentials);
+  }, [credentials]);
 
   return (
     <RegistrationStyle>
