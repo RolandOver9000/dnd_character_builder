@@ -78,9 +78,9 @@ const AddCharacter = (props) => {
   // }, [characters]);
 
   return (
-    <div>
+    <div style={{ fontSize: "2.0em", fontWeight: "bold", color: "white" }}>
       <div className="container-fluid ">
-        <h2>Create a new character</h2>
+        <h1>Create a new character</h1>
 
         <div>
           <form>
@@ -109,7 +109,7 @@ const AddCharacter = (props) => {
 
       <div className="row" style={{ padding: "15px" }}>
         <div id="stats" className="col-4">
-          <h4>Stats: Stat points left: {statPointsLeft}</h4>
+          <h2>Stats: Stat points left: {statPointsLeft}</h2>
           {stats.map((stat) => (
             <p key={stat.index}>
               <IncrementButton onClick={() => setStatLvl(stat, -1)}>
@@ -126,7 +126,7 @@ const AddCharacter = (props) => {
         </div>
 
         <div id="skills" className="col-4" style={{ padding: "5px" }}>
-          <h4> Skills: Skill points left: {skillPointsLeft}</h4>
+          <h2> Skills: Skill points left: {skillPointsLeft}</h2>
           {skills.map((skill) => (
             <p key={skill.index}>
               <IncrementButton onClick={() => setSkillLvl(skill, -1)}>

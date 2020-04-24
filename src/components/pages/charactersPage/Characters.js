@@ -12,7 +12,7 @@ const Characters = () => {
   const { Content } = Layout;
 
   return (
-    <div>
+    <div style={{fontSize: "1.7em", fontWeight: "bold", color: "white"}}>
       <Link to="/add-new-character">
         {" "}
         <button>Create new character</button>

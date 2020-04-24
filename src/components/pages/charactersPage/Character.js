@@ -14,7 +14,7 @@ function Character(props) {
         className="card-img-top"
       ></img>
       <div className="card-body">
-        <h5 className="card-title">name: {props.character.name}</h5>
+        <h4 style={{fontSize: "1.5em", fontWeight: "bold", color: "white"}} className="card-title">name: {props.character.name}</h4>
         <p className="card-text">class: {props.character.clas}</p>
         <p>Lvl: {props.character.characterLvl}</p>
       </div>
