@@ -129,15 +129,16 @@ export const RegistrationButton = () => {
 
   const onCreate = (values) => {
     setRegistrationCredentials(values);
+    handleRegistration();
     setVisible(false);
   };
 
-  useEffect(() => {
+  const handleRegistration = () => {
     Axios.post(
       "http://localhost:8080/user/registration",
       registrationCredentials
-    ).then((resp) => console.log("This is the registration response", resp));
-  }, [registrationCredentials]);
+    );
+  };
 
   return (
     <RegistrationStyle>

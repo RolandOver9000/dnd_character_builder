@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button, Modal, Form, Input } from "antd";
 import LoginStyle from "../style/LoginStyle";
 import Axios from "axios";
@@ -64,15 +64,16 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
 
 export const LoginButton = () => {
   const [visible, setVisible] = useState(false);
-  const [loginCredentials, setLoginCredentials] = useState({});
+  const [loginCredentials, setLoginCredentials] = useState(null);
 
   const onCreate = (values) => {
     console.log("Received values of form: ", values);
     setLoginCredentials(values);
+    handleLogin();
     setVisible(false);
   };
 
-  useEffect(() => {
+  const handleLogin = () => {
     Axios.post("http://localhost:8080/user/login", loginCredentials).then(
       (resp) => {
         if (resp.data !== "") {
@@ -82,8 +83,7 @@ export const LoginButton = () => {
         }
       }
     );
-    console.log(loginCredentials);
-  }, [loginCredentials]);
+  };
 
   return (
     <LoginStyle>
