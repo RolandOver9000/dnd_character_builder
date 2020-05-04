@@ -1,0 +1,871 @@
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mindex 4d29575..7d3ef0c 100644[m
+[1m--- a/.gitignore[m
+[1m+++ b/.gitignore[m
+[36m@@ -21,3 +21,5 @@[m
+ npm-debug.log*[m
+ yarn-debug.log*[m
+ yarn-error.log*[m
+[32m+[m[32mdebug.log[m
+[32m+[m[32m.vscode[m
+\ No newline at end of file[m
+[1mdiff --git a/package-lock.json b/package-lock.json[m
+[1mindex 89efc79..a9635e3 100644[m
+[1m--- a/package-lock.json[m
+[1m+++ b/package-lock.json[m
+[36m@@ -13,9 +13,9 @@[m
+       }[m
+     },[m
+     "@ant-design/icons": {[m
+[31m-      "version": "4.1.0",[m
+[31m-      "resolved": "https://registry.npmjs.org/@ant-design/icons/-/icons-4.1.0.tgz",[m
+[31m-      "integrity": "sha512-R1aIPJboGq4nVYwW7s0v/V2g6yiY27Kec5ldfK3mWHskw7bihPOKwxkHbITuSJcVNJsSvA6LNMlKZoY1u8DIKQ==",[m
+[32m+[m[32m      "version": "4.0.6",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@ant-design/icons/-/icons-4.0.6.tgz",[m
+[32m+[m[32m      "integrity": "sha512-Hvly7PhImdZo5+UnpRPSpqcYFttTEE9ELCgir6R9cPe99IHciLv97EZTshYTFp4T6i2q0x9nuSLpG11UFeu4Dg==",[m
+       "requires": {[m
+         "@ant-design/colors": "^3.1.0",[m
+         "@ant-design/icons-svg": "^4.0.0",[m
+[36m@@ -25,9 +25,9 @@[m
+       }[m
+     },[m
+     "@ant-design/icons-svg": {[m
+[31m-      "version": "4.1.0",[m
+[31m-      "resolved": "https://registry.npmjs.org/@ant-design/icons-svg/-/icons-svg-4.1.0.tgz",[m
+[31m-      "integrity": "sha512-Fi03PfuUqRs76aI3UWYpP864lkrfPo0hluwGqh7NJdLhvH4iRDc3jbJqZIvRDLHKbXrvAfPPV3+zjUccfFvWOQ=="[m
+[32m+[m[32m      "version": "4.0.0",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@ant-design/icons-svg/-/icons-svg-4.0.0.tgz",[m
+[32m+[m[32m      "integrity": "sha512-Nai+cd3XUrv/z50gSk1FI08j6rENZ1e93rhKeLTBGwa5WrmHvhn2vowa5+voZW2qkXJn1btS6tdvTEDB90M0Pw=="[m
+     },[m
+     "@ant-design/react-slick": {[m
+       "version": "0.25.5",[m
+[36m@@ -2373,11 +2373,11 @@[m
+       }[m
+     },[m
+     "antd": {[m
+[31m-      "version": "4.2.0",[m
+[31m-      "resolved": "https://registry.npmjs.org/antd/-/antd-4.2.0.tgz",[m
+[31m-      "integrity": "sha512-QEVhf2ESoBGD4Ef5UHVqHtKiiGEARQZuYLx+qcHbfZf3bLwsRHABgArIK0xsJyyoIts0dgwEBl5d8iI1+TVaVg==",[m
+[32m+[m[32m      "version": "4.1.4",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/antd/-/antd-4.1.4.tgz",[m
+[32m+[m[32m      "integrity": "sha512-YRF/nrAq4R+olKRJxEDqeO4xkTvx+U6ovIQjGew1JDiEHMMhSftpvpYg2Iu5hRdFL66uxQk6VYngMttBpuYm9Q==",[m
+       "requires": {[m
+[31m-        "@ant-design/icons": "^4.1.0",[m
+[32m+[m[32m        "@ant-design/icons": "^4.0.0",[m
+         "@ant-design/react-slick": "~0.25.5",[m
+         "array-tree-filter": "^2.1.0",[m
+         "classnames": "~2.2.6",[m
+[36m@@ -2388,34 +2388,34 @@[m
+         "omit.js": "^1.0.2",[m
+         "prop-types": "^15.7.2",[m
+         "raf": "^3.4.1",[m
+[31m-        "rc-animate": "~2.11.0",[m
+[32m+[m[32m        "rc-animate": "~2.10.2",[m
+         "rc-cascader": "~1.0.0",[m
+         "rc-checkbox": "~2.2.0",[m
+         "rc-collapse": "~1.11.3",[m
+         "rc-dialog": "~7.6.0",[m
+         "rc-drawer": "~3.1.1",[m
+         "rc-dropdown": "~3.0.0",[m
+[31m-        "rc-field-form": "~1.2.0",[m
+[31m-        "rc-input-number": "~4.6.1",[m
+[32m+[m[32m        "rc-field-form": "~1.1.0",[m
+[32m+[m[32m        "rc-input-number": "~4.5.4",[m
+         "rc-mentions": "~1.1.0",[m
+         "rc-menu": "~8.0.1",[m
+         "rc-notification": "~4.0.0",[m
+         "rc-pagination": "~2.2.0",[m
+         "rc-picker": "~1.4.0",[m
+         "rc-progress": "~2.5.0",[m
+[31m-        "rc-rate": "~2.6.0",[m
+[32m+[m[32m        "rc-rate": "~2.5.1",[m
+         "rc-resize-observer": "^0.2.0",[m
+         "rc-select": "~10.2.0",[m
+         "rc-slider": "~9.2.3",[m
+         "rc-steps": "~3.5.0",[m
+         "rc-switch": "~1.9.0",[m
+[31m-        "rc-table": "~7.5.2",[m
+[32m+[m[32m        "rc-table": "~7.4.2",[m
+         "rc-tabs": "~10.1.1",[m
+         "rc-tooltip": "~4.0.2",[m
+         "rc-tree": "~3.1.0",[m
+         "rc-tree-select": "~3.1.0",[m
+         "rc-trigger": "~4.0.0",[m
+[31m-        "rc-upload": "~3.0.4",[m
+[32m+[m[32m        "rc-upload": "~3.0.0",[m
+         "rc-util": "^4.20.0",[m
+         "rc-virtual-list": "^1.1.0",[m
+         "resize-observer-polyfill": "^1.5.1",[m
+[36m@@ -9084,9 +9084,9 @@[m
+       }[m
+     },[m
+     "moment": {[m
+[31m-      "version": "2.25.1",[m
+[31m-      "resolved": "https://registry.npmjs.org/moment/-/moment-2.25.1.tgz",[m
+[31m-      "integrity": "sha512-nRKMf9wDS4Fkyd0C9LXh2FFXinD+iwbJ5p/lh3CHitW9kZbRbJ8hCruiadiIXZVbeAqKZzqcTvHnK3mRhFjb6w=="[m
+[32m+[m[32m      "version": "2.24.0",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/moment/-/moment-2.24.0.tgz",[m
+[32m+[m[32m      "integrity": "sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg=="[m
+     },[m
+     "move-concurrently": {[m
+       "version": "1.0.1",[m
+[36m@@ -11161,9 +11161,9 @@[m
+       }[m
+     },[m
+     "rc-animate": {[m
+[31m-      "version": "2.11.1",[m
+[31m-      "resolved": "https://registry.npmjs.org/rc-animate/-/rc-animate-2.11.1.tgz",[m
+[31m-      "integrity": "sha512-1NyuCGFJG/0Y+9RKh5y/i/AalUCA51opyyS/jO2seELpgymZm2u9QV3xwODwEuzkmeQ1BDPxMLmYLcTJedPlkQ==",[m
+[32m+[m[32m      "version": "2.10.3",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/rc-animate/-/rc-animate-2.10.3.tgz",[m
+[32m+[m[32m      "integrity": "sha512-A9qQ5Y8BLlM7EhuCO3fWb/dChndlbWtY/P5QvPqBU7h4r5Q2QsvsbpTGgdYZATRDZbTRnJXXfVk9UtlyS7MBLg==",[m
+       "requires": {[m
+         "babel-runtime": "6.x",[m
+         "classnames": "^2.2.6",[m
+[36m@@ -11239,13 +11239,14 @@[m
+       }[m
+     },[m
+     "rc-field-form": {[m
+[31m-      "version": "1.2.2",[m
+[31m-      "resolved": "https://registry.npmjs.org/rc-field-form/-/rc-field-form-1.2.2.tgz",[m
+[31m-      "integrity": "sha512-i5GMWOZsmZT75eNPzGJVVF7SmWo/wLI//PqEI2ShbI9hPdBK0Rsjd16C3K+FHQ9Wnc2ODHqqmT783fowu1m8zw==",[m
+[32m+[m[32m      "version": "1.1.3",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/rc-field-form/-/rc-field-form-1.1.3.tgz",[m
+[32m+[m[32m      "integrity": "sha512-m7SUNNaum4pHrUj5MGnymEk3SRitMUZBhnMS0wqWrcL6XqvdTAG5Yz5HjukA6BryaS6nyQOgUVBXMxxNN/XsTQ==",[m
+       "requires": {[m
+         "@babel/runtime": "^7.8.4",[m
+         "async-validator": "^3.0.3",[m
+[31m-        "rc-util": "^4.20.3"[m
+[32m+[m[32m        "rc-util": "^4.17.0",[m
+[32m+[m[32m        "warning": "^4.0.3"[m
+       }[m
+     },[m
+     "rc-hammerjs": {[m
+[36m@@ -11259,13 +11260,15 @@[m
+       }[m
+     },[m
+     "rc-input-number": {[m
+[31m-      "version": "4.6.1",[m
+[31m-      "resolved": "https://registry.npmjs.org/rc-input-number/-/rc-input-number-4.6.1.tgz",[m
+[31m-      "integrity": "sha512-9PhGJia3lZTdkfrILmLf8AAUY5KqFSJxQ6ZccCFfhrA2T4ZPV7cxc5+iPCuXx0FQ/CPcLpEN7D3l32w+qdpp8g==",[m
+[32m+[m[32m      "version": "4.5.6",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/rc-input-number/-/rc-input-number-4.5.6.tgz",[m
+[32m+[m[32m      "integrity": "sha512-AXbL4gtQ1mSQnu6v/JtMv3UbGRCzLvQznmf0a7U/SAtZ8+dCEAqD4JpJhkjv73Wog53eRYhw4l7ApdXflc9ymg==",[m
+       "requires": {[m
+         "babel-runtime": "6.x",[m
+         "classnames": "^2.2.0",[m
+[31m-        "rc-util": "^4.5.1"[m
+[32m+[m[32m        "prop-types": "^15.5.7",[m
+[32m+[m[32m        "rc-util": "^4.5.1",[m
+[32m+[m[32m        "rmc-feedback": "^2.0.0"[m
+       }[m
+     },[m
+     "rc-mentions": {[m
+[36m@@ -11313,9 +11316,9 @@[m
+       }[m
+     },[m
+     "rc-picker": {[m
+[31m-      "version": "1.4.11",[m
+[31m-      "resolved": "https://registry.npmjs.org/rc-picker/-/rc-picker-1.4.11.tgz",[m
+[31m-      "integrity": "sha512-4JmeV1jBg7VGxmGhgawRKCYQoigzj0Vvk9REKSFErPRXH/soTuB4FauRi/mS+ZClnkJBFU9Wh8Mq2UfF6CwgKA==",[m
+[32m+[m[32m      "version": "1.4.8",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/rc-picker/-/rc-picker-1.4.8.tgz",[m
+[32m+[m[32m      "integrity": "sha512-FZ4XnpYBxn4wSzsbnMHK0dqbxkRD1zXE6DNGlevrBnsD7nOrzGeDw67McW4tBR5RjVeGXS1Fzf+Y+glpYWJmkw==",[m
+       "requires": {[m
+         "classnames": "^2.2.1",[m
+         "moment": "^2.24.0",[m
+[36m@@ -11325,21 +11328,23 @@[m
+       }[m
+     },[m
+     "rc-progress": {[m
+[31m-      "version": "2.5.3",[m
+[31m-      "resolved": "https://registry.npmjs.org/rc-progress/-/rc-progress-2.5.3.tgz",[m
+[31m-      "integrity": "sha512-K2fa4CnqGehLZoMrdmBeZ86ONSTVcdk5FlqetbwJ3R/+42XfqhwQVOjWp2MH4P7XSQOMAGcNOy1SFfCP3415sg==",[m
+[32m+[m[32m      "version": "2.5.2",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/rc-progress/-/rc-progress-2.5.2.tgz",[m
+[32m+[m[32m      "integrity": "sha512-ajI+MJkbBz9zYDuE9GQsY5gsyqPF7HFioZEDZ9Fmc+ebNZoiSeSJsTJImPFCg0dW/5WiRGUy2F69SX1aPtSJgA==",[m
+       "requires": {[m
+         "babel-runtime": "6.x",[m
+         "prop-types": "^15.5.8"[m
+       }[m
+     },[m
+     "rc-rate": {[m
+[31m-      "version": "2.6.0",[m
+[31m-      "resolved": "https://registry.npmjs.org/rc-rate/-/rc-rate-2.6.0.tgz",[m
+[31m-      "integrity": "sha512-g6gXZDQfd+kLK7AmoPPWjZ5nlM6ckwQy4RU1xcaFL8AEDx10qbC6Vi6oEhruBbYiPlbAacYcsMA5EbFXhD5x8A==",[m
+[32m+[m[32m      "version": "2.5.1",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/rc-rate/-/rc-rate-2.5.1.tgz",[m
+[32m+[m[32m      "integrity": "sha512-3iJkNJT8xlHklPCdeZtUZmJmRVUbr6AHRlfSsztfYTXVlHrv2TcPn3XkHsH+12j812WVB7gvilS2j3+ffjUHXg==",[m
+       "requires": {[m
+         "classnames": "^2.2.5",[m
+[31m-        "rc-util": "^4.20.1"[m
+[32m+[m[32m        "prop-types": "^15.5.8",[m
+[32m+[m[32m        "rc-util": "^4.3.0",[m
+[32m+[m[32m        "react-lifecycles-compat": "^3.0.4"[m
+       }[m
+     },[m
+     "rc-resize-observer": {[m
+[36m@@ -11353,9 +11358,9 @@[m
+       }[m
+     },[m
+     "rc-select": {[m
+[31m-      "version": "10.2.5",[m
+[31m-      "resolved": "https://registry.npmjs.org/rc-select/-/rc-select-10.2.5.tgz",[m
+[31m-      "integrity": "sha512-E5cdq+8kuTMdvDUmVXGdlHb4D0Effj/Xu988kUWSoALJtEAAdnUbuCJGhu04ehWtKMotGN5I9qlkLR4OdiLrgg==",[m
+[32m+[m[32m      "version": "10.2.4",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/rc-select/-/rc-select-10.2.4.tgz",[m
+[32m+[m[32m      "integrity": "sha512-PtfAHQRXof5gX1qEYQc8GIgroajtzU3mcMGbqM1aE1jqaZ4r+p0GJy3rabXoNANsKH7jUV5+zYJb5VhTxj2vmQ==",[m
+       "requires": {[m
+         "classnames": "2.x",[m
+         "rc-animate": "^2.10.0",[m
+[36m@@ -11400,9 +11405,9 @@[m
+       }[m
+     },[m
+     "rc-table": {[m
+[31m-      "version": "7.5.3",[m
+[31m-      "resolved": "https://registry.npmjs.org/rc-table/-/rc-table-7.5.3.tgz",[m
+[31m-      "integrity": "sha512-eQ+dyD66Rc/QEPSagkzkTtx6+unbIEf6zLPlKfP4iUgxTiXF7sLlmYQyQqbuFQZKE+qD1qow4HLPkY3xpUUqGg==",[m
+[32m+[m[32m      "version": "7.4.5",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/rc-table/-/rc-table-7.4.5.tgz",[m
+[32m+[m[32m      "integrity": "sha512-lQS9izhGmgyCVK05imUrl32lBS9g2f3hB8LOKOof19JWCULKuYL5D3lLpaZSpCTecRYfONYNpgR7mZs7FOnYSQ==",[m
+       "requires": {[m
+         "classnames": "^2.2.5",[m
+         "component-classes": "^1.2.6",[m
+[36m@@ -11436,9 +11441,9 @@[m
+       }[m
+     },[m
+     "rc-tree": {[m
+[31m-      "version": "3.1.6",[m
+[31m-      "resolved": "https://registry.npmjs.org/rc-tree/-/rc-tree-3.1.6.tgz",[m
+[31m-      "integrity": "sha512-K43uIcLnDDoynrkcRSPzkYCrc3mh96/N3DhIDeSv8UdJXMgt0u8KonyuT4y/4GhFPENBuq45ASwcuxvH4uy0Sg==",[m
+[32m+[m[32m      "version": "3.1.5",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/rc-tree/-/rc-tree-3.1.5.tgz",[m
+[32m+[m[32m      "integrity": "sha512-LOUfsJg5XxtA4FKgGkuVwnbBlnh3VVtySF7LMp4ko0n8oIUBYnn2vs6WG41kuH0V4tLTlQhvCFup/6JEKL01sg==",[m
+       "requires": {[m
+         "classnames": "2.x",[m
+         "prop-types": "^15.5.8",[m
+[36m@@ -11482,9 +11487,9 @@[m
+       }[m
+     },[m
+     "rc-util": {[m
+[31m-      "version": "4.20.5",[m
+[31m-      "resolved": "https://registry.npmjs.org/rc-util/-/rc-util-4.20.5.tgz",[m
+[31m-      "integrity": "sha512-f67s4Dt1quBYhrVPq5QMKmK3eS2hN1NNIAyhaiG0HmvqiGYAXMQ7SP2AlGqv750vnzhJs38JklbkWT1/wjhFPg==",[m
+[32m+[m[32m      "version": "4.20.3",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/rc-util/-/rc-util-4.20.3.tgz",[m
+[32m+[m[32m      "integrity": "sha512-NBBc9Ad5yGAVTp4jV+pD7tXQGqHxGM2onPSZFyVoJ5fuvRF+ZgzSjZ6RXLPE0pVVISRJ07h+APgLJPBcAeZQlg==",[m
+       "requires": {[m
+         "add-dom-event-listener": "^1.1.0",[m
+         "prop-types": "^15.5.10",[m
+[36m@@ -12202,6 +12207,13 @@[m
+         "tough-cookie": "~2.5.0",[m
+         "tunnel-agent": "^0.6.0",[m
+         "uuid": "^3.3.2"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "uuid": {[m
+[32m+[m[32m          "version": "3.4.0",[m
+[32m+[m[32m          "resolved": "https://registry.npmjs.org/uuid/-/uuid-3.4.0.tgz",[m
+[32m+[m[32m          "integrity": "sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A=="[m
+[32m+[m[32m        }[m
+       }[m
+     },[m
+     "request-promise-core": {[m
+[36m@@ -12405,6 +12417,15 @@[m
+         "inherits": "^2.0.1"[m
+       }[m
+     },[m
+[32m+[m[32m    "rmc-feedback": {[m
+[32m+[m[32m      "version": "2.0.0",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/rmc-feedback/-/rmc-feedback-2.0.0.tgz",[m
+[32m+[m[32m      "integrity": "sha512-5PWOGOW7VXks/l3JzlOU9NIxRpuaSS8d9zA3UULUCuTKnpwBHNvv1jSJzxgbbCQeYzROWUpgKI4za3X4C/mKmQ==",[m
+[32m+[m[32m      "requires": {[m
+[32m+[m[32m        "babel-runtime": "6.x",[m
+[32m+[m[32m        "classnames": "^2.2.5"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+     "rsvp": {[m
+       "version": "4.8.5",[m
+       "resolved": "https://registry.npmjs.org/rsvp/-/rsvp-4.8.5.tgz",[m
+[36m@@ -12947,6 +12968,13 @@[m
+       "requires": {[m
+         "faye-websocket": "^0.10.0",[m
+         "uuid": "^3.0.1"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "uuid": {[m
+[32m+[m[32m          "version": "3.4.0",[m
+[32m+[m[32m          "resolved": "https://registry.npmjs.org/uuid/-/uuid-3.4.0.tgz",[m
+[32m+[m[32m          "integrity": "sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A=="[m
+[32m+[m[32m        }[m
+       }[m
+     },[m
+     "sockjs-client": {[m
+[36m@@ -14160,9 +14188,9 @@[m
+       "integrity": "sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM="[m
+     },[m
+     "uuid": {[m
+[31m-      "version": "3.4.0",[m
+[31m-      "resolved": "https://registry.npmjs.org/uuid/-/uuid-3.4.0.tgz",[m
+[31m-      "integrity": "sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A=="[m
+[32m+[m[32m      "version": "7.0.3",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/uuid/-/uuid-7.0.3.tgz",[m
+[32m+[m[32m      "integrity": "sha512-DPSke0pXhTZgoF/d+WSt2QaKMCFSfx7QegxEWT+JOuHF5aWrKEn0G+ztjuJg/gG8/ItK+rbPCD/yNv8yyih6Cg=="[m
+     },[m
+     "v8-compile-cache": {[m
+       "version": "2.1.0",[m
+[36m@@ -15783,6 +15811,13 @@[m
+       "requires": {[m
+         "ansi-colors": "^3.0.0",[m
+         "uuid": "^3.3.2"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "uuid": {[m
+[32m+[m[32m          "version": "3.4.0",[m
+[32m+[m[32m          "resolved": "https://registry.npmjs.org/uuid/-/uuid-3.4.0.tgz",[m
+[32m+[m[32m          "integrity": "sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A=="[m
+[32m+[m[32m        }[m
+       }[m
+     },[m
+     "webpack-manifest-plugin": {[m
+[1mdiff --git a/package.json b/package.json[m
+[1mindex 48fa474..aeedf35 100644[m
+[1m--- a/package.json[m
+[1m+++ b/package.json[m
+[36m@@ -7,16 +7,16 @@[m
+     "@testing-library/jest-dom": "^4.2.4",[m
+     "@testing-library/react": "^9.5.0",[m
+     "@testing-library/user-event": "^7.2.1",[m
+[31m-    "antd": "^4.2.0",[m
+[32m+[m[32m    "antd": "^4.1.4",[m
+     "axios": "^0.19.2",[m
+     "bootstrap": "^4.4.1",[m
+     "react": "^16.13.1",[m
+     "react-dom": "^16.13.1",[m
+     "react-router-dom": "^5.1.2",[m
+     "react-scripts": "3.4.1",[m
+[31m-    "styled-components": "^5.1.0"[m
+[32m+[m[32m    "styled-components": "^5.1.0",[m
+[32m+[m[32m    "uuid": "^7.0.3"[m
+   },[m
+[31m-  [m
+   "scripts": {[m
+     "start": "react-scripts start",[m
+     "build": "react-scripts build",[m
+[1mdiff --git a/src/App.js b/src/App.js[m
+[1mindex 80b9eda..10d35fe 100644[m
+[1m--- a/src/App.js[m
+[1m+++ b/src/App.js[m
+[36m@@ -10,13 +10,13 @@[m [mimport Shop from "./components/pages/shop/element/ItemGrid";[m
+ import GlobalStyle from "./components/style/GlobalStyle";[m
+ import AppFontStyle from "./components/style/AppStyle";[m
+ [m
+[31m-import { CharacterProvider } from "./components/context/CharacterContext";[m
+[32m+[m[32mimport { CharacterProvider } from "./components/pages/charactersPage/context/CharacterContext";[m
+ [m
+[31m-import { MonsterProvider } from "./components/pages/monster/context/MonsterContext";[m
+[31m-import Monsters from "./components/pages/monster/element/Monsters";[m
+[31m-import Monster from "./components/pages/monster/element/Monster";[m
+[31m-import MonsterDetail from "./components/pages/monster/element/MonsterDetail";[m
+[31m-import { MonsterDetailProvider } from "./components/pages/monster/context/MonsterDetailContext";[m
+[32m+[m[32mimport { MonsterProvider } from "./components/pages/Monster/context/MonsterContext";[m
+[32m+[m[32mimport Monsters from "./components/pages/Monster/element/Monsters";[m
+[32m+[m[32mimport Monster from "./components/pages/Monster/element/Monster";[m
+[32m+[m[32mimport MonsterDetail from "./components/pages/Monster/element/MonsterDetail";[m
+[32m+[m[32mimport { MonsterDetailProvider } from "./components/pages/Monster/context/MonsterDetailContext";[m
+ [m
+ import Characters from "./components/pages/charactersPage/Characters";[m
+ import AddCharacter from "./components/pages/charactersPage/AddCharacter";[m
+[1mdiff --git a/src/components/context/MonstersContext.js b/src/components/context/MonstersContext.js[m
+[1mdeleted file mode 100644[m
+[1mindex e69de29..0000000[m
+[1mdiff --git a/src/components/pages/charactersPage/AddCharacter.js b/src/components/pages/charactersPage/AddCharacter.js[m
+[1mindex 2bd561f..1b0bd4b 100644[m
+[1m--- a/src/components/pages/charactersPage/AddCharacter.js[m
+[1m+++ b/src/components/pages/charactersPage/AddCharacter.js[m
+[36m@@ -1,31 +1,86 @@[m
+[31m-import { CharacterContext } from "../../context/CharacterContext";[m
+[31m-import React, { useContext, useState } from "react";[m
+[31m-import IncrementButton from "../../elements/IncrementButton";[m
+[32m+[m[32mimport { CharacterContext } from "./context/CharacterContext";[m
+[32m+[m[32mimport React, { useContext, useState, useEffect } from "react";[m
+[32m+[m[32mimport IncrementButton from "./elements/IncrementButton";[m
+[32m+[m[32mimport { v1 as uuid4 } from "uuid";[m
+[32m+[m[32mimport { Link } from "react-router-dom";[m
+[32m+[m[32mimport axios from "axios";[m
+ [m
+ const AddCharacter = (props) => {[m
+   const value = useContext(CharacterContext);[m
+   const skills = value.skills;[m
+   const classes = value.classes;[m
+   const stats = value.stats;[m
+[31m-  const [statPointsLeft, setStatPointsLeft] = useState(20);[m
+[31m-  const [skillPointsLeft, setskillPointsLeft] = useState(10);[m
+[31m-[m
+[32m+[m[32m  const [characters] = value.characters;[m
+[32m+[m[32m  const [statPointsLeft, setStatPointsLeft] = useState(16);[m
+[32m+[m[32m  const [skillPointsLeft, setSkillPointsLeft] = useState(10);[m
+[32m+[m[32m  const { addNewCharacter } = useContext(CharacterContext);[m
+   const [characterName, setCharacterName] = useState("");[m
+   const updateCharacterName = (e) => setCharacterName(e.target.value);[m
+ [m
+   const [characterClass, setCharacterClass] = useState("");[m
+   const updateClass = (e) => setCharacterClass(e.target.value);[m
+[31m-  for (const stat of stats) {[m
+[31m-    stat.lvl = 1;[m
+[31m-  }[m
+[31m-  for (const skill of skills) {[m
+[31m-    skill.lvl = 0;[m
+[31m-  }[m
+[32m+[m
+[32m+[m[32m  const setStatLvl = (stat, modifier) => {[m
+[32m+[m[32m    if (stat.lvl + modifier === 0 || stat.lvl + modifier > 10) {[m
+[32m+[m[32m      console.log("skill lvl cant be lower then 1 and higher then 10");[m
+[32m+[m[32m    } else if (statPointsLeft - modifier < 0) {[m
+[32m+[m[32m      console.log("out of statpoints");[m
+[32m+[m[32m    } else {[m
+[32m+[m[32m      stat.lvl = stat.lvl + modifier;[m
+[32m+[m[32m      setStatPointsLeft(statPointsLeft - modifier);[m
+[32m+[m[32m    }[m
+[32m+[m[32m  };[m
+[32m+[m
+[32m+[m[32m  const setSkillLvl = (skill, modifier) => {[m
+[32m+[m[32m    if (skill.lvl + modifier < 0 || skill.lvl + modifier > 10) {[m
+[32m+[m[32m      console.log("skill lvl cant be lower then 1 and higher then 10");[m
+[32m+[m[32m    } else if (skillPointsLeft - modifier < 0) {[m
+[32m+[m[32m      console.log("out of skillpoints");[m
+[32m+[m[32m    } else {[m
+[32m+[m[32m      skill.lvl = skill.lvl + modifier;[m
+[32m+[m[32m      setSkillPointsLeft(skillPointsLeft - modifier);[m
+[32m+[m[32m    }[m
+[32m+[m[32m  };[m
+[32m+[m
+[32m+[m[32m  const createNewCharacter = () => {[m
+[32m+[m[32m    const character = {[m
+[32m+[m[32m      id: uuid4(),[m
+[32m+[m[32m      name: characterName,[m
+[32m+[m[32m      clas: characterClass,[m
+[32m+[m[32m      characterLvl: 1,[m
+[32m+[m[32m      img:[m
+[32m+[m[32m        "https://cdnb.artstation.com/p/assets/images/images/007/886/327/large/samuel-marcano-andres1web.jpg?1509138117",[m
+[32m+[m[32m      stats: stats,[m
+[32m+[m[32m      skills: skills,[m
+[32m+[m[32m      // inventory: [],[m
+[32m+[m[32m      skillPoints: skillPointsLeft,[m
+[32m+[m[32m      statpoints: statPointsLeft,[m
+[32m+[m[32m    };[m
+[32m+[m[32m    console.log(character);[m
+[32m+[m[32m    //enable to frontend way add created  character to characters page[m
+[32m+[m[32m    addNewCharacter(character);[m
+[32m+[m[32m    console.log(characters);[m
+[32m+[m[32m    axios.defaults.headers.post["Content-Type"] =[m
+[32m+[m[32m      "application/json;charset=utf-8";[m
+[32m+[m[32m    axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";[m
+[32m+[m[32m    axios.post("http://localhost:8080/add-new-character", character);[m
+[32m+[m[32m  };[m
+[32m+[m
+[32m+[m[32m  useEffect(() => {[m
+[32m+[m[32m    console.log("useeffect stats");[m
+[32m+[m[32m  }, [stats]);[m
+[32m+[m[32m  useEffect(() => {[m
+[32m+[m[32m    console.log("useeffect skills");[m
+[32m+[m[32m  }, [skills]);[m
+[32m+[m
+[32m+[m[32m  // useEffect(() => {[m
+[32m+[m[32m  //   console.log("useeffect characters");[m
+[32m+[m[32m  // }, [characters]);[m
+ [m
+   return ([m
+[31m-    <div>[m
+[32m+[m[32m    <div style={{ fontSize: "2.0em", fontWeight: "bold", color: "white" }}>[m
+       <div className="container-fluid ">[m
+[31m-        <h2>Create a new character</h2>[m
+[32m+[m[32m        <h1>Create a new character</h1>[m
+ [m
+         <div>[m
+           <form>[m
+[36m@@ -38,39 +93,55 @@[m [mconst AddCharacter = (props) => {[m
+               onChange={updateCharacterName}[m
+             ></input>[m
+             Class:{" "}[m
+[31m-            <select>[m
+[32m+[m[32m            <select onClick={updateClass}>[m
+               {classes.map((clas) => ([m
+[31m-                <option value={clas.name} onChange={updateClass}>[m
+[32m+[m[32m                <option value={clas.name} key={clas.index}>[m
+                   {clas.name}[m
+                 </option>[m
+               ))}[m
+             </select>[m
+[32m+[m[32m            <Link to="/characters">[m
+[32m+[m[32m              <button onClick={createNewCharacter}>Create Character</button>[m
+[32m+[m[32m            </Link>[m
+           </form>[m
+         </div>[m
+       </div>[m
+[32m+[m
+       <div className="row" style={{ padding: "15px" }}>[m
+         <div id="stats" className="col-4">[m
+[31m-          <h4>Stats: Stat points left: {statPointsLeft}</h4>[m
+[32m+[m[32m          <h2>Stats: Stat points left: {statPointsLeft}</h2>[m
+           {stats.map((stat) => ([m
+[31m-            <p>[m
+[31m-              <IncrementButton> - </IncrementButton>[m
+[32m+[m[32m            <p key={stat.index}>[m
+[32m+[m[32m              <IncrementButton onClick={() => setStatLvl(stat, -1)}>[m
+[32m+[m[32m                {" "}[m
+[32m+[m[32m                -{" "}[m
+[32m+[m[32m              </IncrementButton>[m
+               {stat.name}: {stat.lvl}[m
+[31m-              <IncrementButton> + </IncrementButton>[m
+[32m+[m[32m              <IncrementButton onClick={() => setStatLvl(stat, 1)}>[m
+[32m+[m[32m                {" "}[m
+[32m+[m[32m                +{" "}[m
+[32m+[m[32m              </IncrementButton>[m
+             </p>[m
+           ))}[m
+         </div>[m
+[32m+[m
+         <div id="skills" className="col-4" style={{ padding: "5px" }}>[m
+[31m-          <h4> Skills: Skill points left: {skillPointsLeft}</h4>[m
+[32m+[m[32m          <h2> Skills: Skill points left: {skillPointsLeft}</h2>[m
+           {skills.map((skill) => ([m
+[31m-            <p>[m
+[31m-              <IncrementButton> - </IncrementButton>[m
+[32m+[m[32m            <p key={skill.index}>[m
+[32m+[m[32m              <IncrementButton onClick={() => setSkillLvl(skill, -1)}>[m
+[32m+[m[32m                {" "}[m
+[32m+[m[32m                -{" "}[m
+[32m+[m[32m              </IncrementButton>[m
+               {skill.name}: {skill.lvl}[m
+[31m-              <IncrementButton> + </IncrementButton>[m
+[32m+[m[32m              <IncrementButton onClick={() => setSkillLvl(skill, 1)}>[m
+[32m+[m[32m                {" "}[m
+[32m+[m[32m                +{" "}[m
+[32m+[m[32m              </IncrementButton>[m
+             </p>[m
+           ))}[m
+         </div>[m
+       </div>[m
+[31m-      <button>Create</button>[m
+     </div>[m
+   );[m
+ };[m
+[1mdiff --git a/src/components/pages/charactersPage/Character.js b/src/components/pages/charactersPage/Character.js[m
+[1mindex a9f5950..b51a3fb 100644[m
+[1m--- a/src/components/pages/charactersPage/Character.js[m
+[1m+++ b/src/components/pages/charactersPage/Character.js[m
+[36m@@ -11,25 +11,15 @@[m [mfunction Character(props) {[m
+         alt="your character"[m
+         width="140"[m
+         height="200"[m
+[31m-        class="card-img-top"[m
+[32m+[m[32m        className="card-img-top"[m
+       ></img>[m
+[31m-      <div class="card-body">[m
+[31m-        <h5 class="card-title">name: {props.character.name}</h5>[m
+[31m-        <p class="card-text">class: {props.character.class}</p>[m
+[32m+[m[32m      <div className="card-body">[m
+[32m+[m[32m        <h4 style={{fontSize: "1.5em", fontWeight: "bold", color: "white"}} className="card-title">name: {props.character.name}</h4>[m
+[32m+[m[32m        <p className="card-text">class: {props.character.clas}</p>[m
+         <p>Lvl: {props.character.characterLvl}</p>[m
+       </div>[m
+     </div>[m
+[31m-    //     <div id="card">[m
+[31m-    //       <img[m
+[31m-    //         src={props.character.img}[m
+[31m-    //         alt="your character"[m
+[31m-    //         width="140"[m
+[31m-    //         height="200"[m
+[31m-    //       ></img>[m
+[31m-    //       <p>name: {props.character.name}</p>[m
+[31m-    //       <p>class: {props.character.class}</p>[m
+[31m-    //   <p>Lvl: {props.character.characterLvl}</p>[m
+[31m-    //     </div>[m
+[32m+[m[41m  [m
+   );[m
+ }[m
+ [m
+[1mdiff --git a/src/components/pages/charactersPage/Characters.js b/src/components/pages/charactersPage/Characters.js[m
+[1mindex 09794e3..5795b22 100644[m
+[1m--- a/src/components/pages/charactersPage/Characters.js[m
+[1m+++ b/src/components/pages/charactersPage/Characters.js[m
+[36m@@ -1,17 +1,18 @@[m
+[31m-import React, { useContext } from "react";[m
+[32m+[m[32mimport React, { useContext, useEffect } from "react";[m
+ import { Link } from "react-router-dom";[m
+ import Character from "./Character";[m
+[31m-import { CharacterContext } from "../../context/CharacterContext";[m
+[32m+[m[32mimport { CharacterContext } from "./context/CharacterContext";[m
+ import { Row, Col, Layout } from "antd";[m
+[31m-import "antd/dist/antd.css";[m
+ [m
+[31m-const Characters = (props) => {[m
+[32m+[m[32mconst Characters = () => {[m
+   const value = useContext(CharacterContext);[m
+   const characters = value.characters;[m
+[32m+[m[41m  [m
+[32m+[m[32m  useEffect(() => {}, [characters]);[m
+   const { Content } = Layout;[m
+ [m
+   return ([m
+[31m-    <div>[m
+[32m+[m[32m    <div style={{fontSize: "1.7em", fontWeight: "bold", color: "white"}}>[m
+       <Link to="/add-new-character">[m
+         {" "}[m
+         <button>Create new character</button>[m
+[36m@@ -23,8 +24,8 @@[m [mconst Characters = (props) => {[m
+         >[m
+           <Row gutter={[16, 24]}>[m
+             {characters.map((character) => ([m
+[31m-              <Col className="gutter-row" span={6}>[m
+[31m-                <Character character={character} />[m
+[32m+[m[32m              <Col id={character.id} className="gutter-row" span={6}>[m
+[32m+[m[32m                <Character id={character.id} character={character} />[m
+               </Col>[m
+             ))}[m
+           </Row>[m
+[1mdiff --git a/src/components/context/CharacterContext.js b/src/components/pages/charactersPage/context/CharacterContext.js[m
+[1msimilarity index 80%[m
+[1mrename from src/components/context/CharacterContext.js[m
+[1mrename to src/components/pages/charactersPage/context/CharacterContext.js[m
+[1mindex 87cb2c0..95b91dc 100644[m
+[1m--- a/src/components/context/CharacterContext.js[m
+[1m+++ b/src/components/pages/charactersPage/context/CharacterContext.js[m
+[36m@@ -7,11 +7,17 @@[m [mexport const CharacterProvider = (props) => {[m
+   const [skills, setSkills] = useState([]);[m
+   const [classes, setClasses] = useState([]);[m
+   const [stats, setStats] = useState([]);[m
+[32m+[m[32m  for (const stat of stats) {[m
+[32m+[m[32m    stat.lvl = 1;[m
+[32m+[m[32m  }[m
+[32m+[m[32m  for (const skill of skills) {[m
+[32m+[m[32m    skill.lvl = 0;[m
+[32m+[m[32m  }[m
+   const [characters, setCharacters] = useState([[m
+     {[m
+       id: 1,[m
+       name: "Skandar Graun",[m
+[31m-      class: "warrior-priest",[m
+[32m+[m[32m      clas: "warrior-priest",[m
+       characterLvl: 1,[m
+       img: "https://skandargraun.eoldal.hu/img/picture/2/skandar2.jpg",[m
+       stats: [],[m
+[36m@@ -21,7 +27,7 @@[m [mexport const CharacterProvider = (props) => {[m
+     {[m
+       id: 2,[m
+       name: "Peltar",[m
+[31m-      class: "wizard",[m
+[32m+[m[32m      clas: "wizard",[m
+       characterLvl: 10,[m
+       img:[m
+         "https://i.pinimg.com/originals/95/ff/34/95ff3439cd8f575ae1807b1482514db3.jpg",[m
+[36m@@ -30,6 +36,17 @@[m [mexport const CharacterProvider = (props) => {[m
+       inventory: [],[m
+     },[m
+   ]);[m
+[32m+[m[32m  const addNewCharacter = (character) => {[m
+[32m+[m[32m    setCharacters([...characters,  character][m
+[32m+[m[32m    );[m
+[32m+[m[32m  };[m
+[32m+[m[32m  //Characters[m
+[32m+[m[32m  useEffect(()=>{[m
+[32m+[m[32m    axios.get("http://localhost:8080/characters").then((res)=>{[m
+[32m+[m[32m      setCharacters(res.data)[m
+[32m+[m[32m    })[m
+[32m+[m[32m  },[])[m
+[32m+[m[41m  [m
+ [m
+   //Skills[m
+   useEffect(() => {[m
+[36m@@ -66,6 +83,7 @@[m [mexport const CharacterProvider = (props) => {[m
+         setStats,[m
+         characters,[m
+         setCharacters,[m
+[32m+[m[32m        addNewCharacter,[m
+       }}[m
+     >[m
+       {props.children}[m
+[1mdiff --git a/src/components/elements/IncrementButton.js b/src/components/pages/charactersPage/elements/IncrementButton.js[m
+[1msimilarity index 100%[m
+[1mrename from src/components/elements/IncrementButton.js[m
+[1mrename to src/components/pages/charactersPage/elements/IncrementButton.js[m
+[1mdiff --git a/src/components/pages/home/element/Login.js b/src/components/pages/home/element/Login.js[m
+[1mindex b3d6fa7..4e27d78 100644[m
+[1m--- a/src/components/pages/home/element/Login.js[m
+[1m+++ b/src/components/pages/home/element/Login.js[m
+[36m@@ -1,7 +1,6 @@[m
+ import React, { useState } from "react";[m
+ import { Button, Modal, Form, Input } from "antd";[m
+ import LoginStyle from "../style/LoginStyle";[m
+[31m-import Axios from "axios";[m
+ [m
+ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {[m
+   const [form] = Form.useForm();[m
+[36m@@ -33,7 +32,7 @@[m [mconst CollectionCreateForm = ({ visible, onCreate, onCancel }) => {[m
+         }}[m
+       >[m
+         <Form.Item[m
+[31m-          name="username"[m
+[32m+[m[32m          name="Username field"[m
+           label="Username"[m
+           rules={[[m
+             {[m
+[36m@@ -45,17 +44,16 @@[m [mconst CollectionCreateForm = ({ visible, onCreate, onCancel }) => {[m
+           <Input />[m
+         </Form.Item>[m
+         <Form.Item[m
+[31m-          name="password"[m
+[32m+[m[32m          name="Password field"[m
+           label="Password"[m
+           rules={[[m
+             {[m
+               required: true,[m
+[31m-              message: "Please enter your password!",[m
+[32m+[m[32m              message: "Please give me your password.",[m
+             },[m
+           ]}[m
+[31m-          hasFeedback[m
+         >[m
+[31m-          <Input.Password />[m
+[32m+[m[32m          <Input type="textarea" />[m
+         </Form.Item>[m
+       </Form>[m
+     </Modal>[m
+[36m@@ -64,27 +62,12 @@[m [mconst CollectionCreateForm = ({ visible, onCreate, onCancel }) => {[m
+ [m
+ export const LoginButton = () => {[m
+   const [visible, setVisible] = useState(false);[m
+[31m-  const [loginCredentials, setLoginCredentials] = useState(null);[m
+ [m
+   const onCreate = (values) => {[m
+     console.log("Received values of form: ", values);[m
+[31m-    setLoginCredentials(values);[m
+[31m-    handleLogin();[m
+     setVisible(false);[m
+   };[m
+ [m
+[31m-  const handleLogin = () => {[m
+[31m-    Axios.post("http://localhost:8080/user/login", loginCredentials).then([m
+[31m-      (resp) => {[m
+[31m-        if (resp.data !== "") {[m
+[31m-          console.log("User found.", resp);[m
+[31m-        } else {[m
+[31m-          console.log("User not found.");[m
+[31m-        }[m
+[31m-      }[m
+[31m-    );[m
+[31m-  };[m
+[31m-[m
+   return ([m
+     <LoginStyle>[m
+       <div className="login-button">[m
+[1mdiff --git a/src/components/pages/home/element/Registration.js b/src/components/pages/home/element/Registration.js[m
+[1mindex 961515b..a5f8a57 100644[m
+[1m--- a/src/components/pages/home/element/Registration.js[m
+[1m+++ b/src/components/pages/home/element/Registration.js[m
+[36m@@ -64,7 +64,7 @@[m [mexport const RegistrationForm = ({ visible, onCreate, onCancel }) => {[m
+           rules={[[m
+             {[m
+               required: true,[m
+[31m-              message: "Please enter your password!",[m
+[32m+[m[32m              message: "Please input your password!",[m
+             },[m
+           ]}[m
+           hasFeedback[m
+[36m@@ -80,7 +80,7 @@[m [mexport const RegistrationForm = ({ visible, onCreate, onCancel }) => {[m
+           rules={[[m
+             {[m
+               required: true,[m
+[31m-              message: "Your password does not match!",[m
+[32m+[m[32m              message: "Please confirm your password!",[m
+             },[m
+             ({ getFieldValue }) => ({[m
+               validator(rule, value) {[m
+[36m@@ -125,20 +125,16 @@[m [mexport const RegistrationForm = ({ visible, onCreate, onCancel }) => {[m
+ [m
+ export const RegistrationButton = () => {[m
+   const [visible, setVisible] = useState(false);[m
+[31m-  const [registrationCredentials, setRegistrationCredentials] = useState({});[m
+[32m+[m[32m  const [credentials, setCredentials] = useState({});[m
+ [m
+   const onCreate = (values) => {[m
+[31m-    setRegistrationCredentials(values);[m
+[31m-    handleRegistration();[m
+[32m+[m[32m    setCredentials(values);[m
+     setVisible(false);[m
+   };[m
+ [m
+[31m-  const handleRegistration = () => {[m
+[31m-    Axios.post([m
+[31m-      "http://localhost:8080/user/registration",[m
+[31m-      registrationCredentials[m
+[31m-    );[m
+[31m-  };[m
+[32m+[m[32m  useEffect(() => {[m
+[32m+[m[32m    Axios.post("http://localhost:8080/user/add", credentials);[m
+[32m+[m[32m  }, [credentials]);[m
+ [m
+   return ([m
+     <RegistrationStyle>[m
+[1mdiff --git a/src/components/pages/monster/element/Monsters.js b/src/components/pages/monster/element/Monsters.js[m
+[1mindex 4e6aeb5..97bc99f 100644[m
+[1m--- a/src/components/pages/monster/element/Monsters.js[m
+[1m+++ b/src/components/pages/monster/element/Monsters.js[m
+[36m@@ -1,5 +1,4 @@[m
+ import React, { useContext } from "react";[m
+[31m-[m
+ import Monster from "./Monster";[m
+ import { MonsterContext } from "../context/MonsterContext";[m
+ [m
+[1mdiff --git a/src/components/pages/monster/element/context/MonsterDetailContext.js b/src/components/pages/monster/element/context/MonsterDetailContext.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..3ff4626[m
+[1m--- /dev/null[m
+[1m+++ b/src/components/pages/monster/element/context/MonsterDetailContext.js[m
+[36m@@ -0,0 +1,22 @@[m
+[32m+[m[32mimport React, { useState, createContext, useEffect } from "react";[m
+[32m+[m[32mimport Axios from "axios";[m
+[32m+[m
+[32m+[m[32mexport const MonsterDetailContext = createContext();[m
+[32m+[m
+[32m+[m[32mexport const MonsterDetailProvider = (props) => {[m
+[32m+[m[32m  const [monsterDetail, setMonsterDetail] = useState(null);[m
+[32m+[m
+[32m+[m[32m  const getMonsterDetail = (monsterIndex) => {[m
+[32m+[m[32m    Axios.get([m
+[32m+[m[32m      `https://www.dnd5eapi.co/api/monsters/${monsterIndex}`[m
+[32m+[m[32m    ).then(({ data }) => setMonsterDetail(data));[m
+[32m+[m[32m  };[m
+[32m+[m
+[32m+[m[32m  return ([m
+[32m+[m[32m    <MonsterDetailContext.Provider[m
+[32m+[m[32m      value={{ monsterDetail, setMonsterDetail, getMonsterDetail }}[m
+[32m+[m[32m    >[m
+[32m+[m[32m      {props.children}[m
+[32m+[m[32m    </MonsterDetailContext.Provider>[m
+[32m+[m[32m  );[m
+[32m+[m[32m};[m
+[1mdiff --git a/src/components/pages/shop/context/ItemContext.js b/src/components/pages/shop/context/ItemContext.js[m
+[1mindex 9ed2f67..b251c69 100644[m
+[1m--- a/src/components/pages/shop/context/ItemContext.js[m
+[1m+++ b/src/components/pages/shop/context/ItemContext.js[m
+[36m@@ -14,6 +14,18 @@[m [mexport const ItemProvider = (props) => {[m
+     });[m
+   }, []);[m
+ [m
+[32m+[m[32m  // useEffect(() => {[m
+[32m+[m[32m  //   Promise.all([m
+[32m+[m[32m  //     items.map((item) => {[m
+[32m+[m[32m  //       Axios.get("https://www.dnd5eapi.co" + item.url).then([m
+[32m+[m[32m  //         (resp) =>[m
+[32m+[m[32m  //           setItemDetails((prevItemDetails) => [...prevItemDetails, resp.data])[m
+[32m+[m[32m  //         // setItemDetails((itemDetails) => [...itemDetails, resp.data])[m
+[32m+[m[32m  //       );[m
+[32m+[m[32m  //     })[m
+[32m+[m[32m  //   );[m
+[32m+[m[32m  // }, [items]);[m
+[32m+[m
+   return ([m
+     <ItemContext.Provider value={{ itemDetails, setItemDetails }}>[m
+       {props.children}[m
