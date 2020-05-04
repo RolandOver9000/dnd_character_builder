@@ -12,11 +12,11 @@ import AppFontStyle from "./components/style/AppStyle";
 
 import { CharacterProvider } from "./components/pages/charactersPage/context/CharacterContext";
 
-import { MonsterProvider } from "./components/pages/Monster/context/MonsterContext";
-import Monsters from "./components/pages/Monster/element/Monsters";
-import Monster from "./components/pages/Monster/element/Monster";
-import MonsterDetail from "./components/pages/Monster/element/MonsterDetail";
-import { MonsterDetailProvider } from "./components/pages/Monster/context/MonsterDetailContext";
+import { MonsterProvider } from "./components/pages/monster/context/MonsterContext";
+import Monsters from "./components/pages/monster/element/Monsters";
+import Monster from "./components/pages/monster/element/Monster";
+import MonsterDetail from "./components/pages/monster/element/MonsterDetail";
+import { MonsterDetailProvider } from "./components/pages/monster/context/MonsterDetailContext";
 
 import Characters from "./components/pages/charactersPage/Characters";
 import AddCharacter from "./components/pages/charactersPage/AddCharacter";

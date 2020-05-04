@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Modal, Form, Input } from "antd";
 import LoginStyle from "../style/LoginStyle";
+import Axios from "axios";
 
 const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
   const [form] = Form.useForm();
@@ -32,7 +33,7 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
         }}
       >
         <Form.Item
-          name="Username field"
+          name="username"
           label="Username"
           rules={[
             {
@@ -44,16 +45,17 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
           <Input />
         </Form.Item>
         <Form.Item
-          name="Password field"
+          name="password"
           label="Password"
           rules={[
             {
               required: true,
-              message: "Please give me your password.",
+              message: "Please enter your password!",
             },
           ]}
+          hasFeedback
         >
-          <Input type="textarea" />
+          <Input.Password />
         </Form.Item>
       </Form>
     </Modal>
@@ -62,10 +64,25 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
 
 export const LoginButton = () => {
   const [visible, setVisible] = useState(false);
+  const [loginCredentials, setLoginCredentials] = useState(null);
 
   const onCreate = (values) => {
     console.log("Received values of form: ", values);
+    setLoginCredentials(values);
+    handleLogin();
     setVisible(false);
+  };
+
+  const handleLogin = () => {
+    Axios.post("http://localhost:8080/user/login", loginCredentials).then(
+      (resp) => {
+        if (resp.data !== "") {
+          console.log("User found.", resp);
+        } else {
+          console.log("User not found.");
+        }
+      }
+    );
   };
 
   return (
