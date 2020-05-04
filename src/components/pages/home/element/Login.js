@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Modal, Form, Input } from "antd";
+import { Button, Modal, Form, Input , Radio} from "antd";
 import LoginStyle from "../style/LoginStyle";
 import Axios from "axios";
 
@@ -23,7 +23,7 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
             console.log("Validate Failed:", info);
           });
       }}
-    >
+    > 
       <Form
         form={form}
         layout="vertical"
