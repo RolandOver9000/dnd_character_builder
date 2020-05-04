@@ -78,7 +78,7 @@ const AddCharacter = (props) => {
   // }, [characters]);
 
   return (
-    <div style={{ fontSize: "2.0em", fontWeight: "bold", color: "white" }}>
+    <div >
       <div className="container-fluid ">
         <h1>Create a new character</h1>
 
