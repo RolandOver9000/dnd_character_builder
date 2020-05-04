@@ -6,7 +6,7 @@ export default styled.div`
     font-family: "DndFont";
     /* font-size: xx-large; */
   }
-  & .app {
+  & .App {
     background-image: url(${OldPaper});
     width: 100%;
     height: 100%;

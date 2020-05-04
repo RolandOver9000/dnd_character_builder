@@ -13,6 +13,7 @@ export default styled.div`
     align-items: center;
     background-image: url(${CardStyle1});
     background-size: contain;
+    font-size: 30px;
   }
   & .card-content:hover {
     opacity: 1;

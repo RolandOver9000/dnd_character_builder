@@ -50,8 +50,20 @@ const AddMonsters = () => {
           ></input>
           <label for="inputSMEx">Large input</label>
         </div>
-        <input type="submit" value="Submit"></input>
+        <input
+          type="submit"
+          value="Submit"
+          onclick="location.href = 'localhost:3000/monsters;"
+          id="myButton"
+          class="float-left submit-button"
+        ></input>
       </form>
+
+      <button
+        onclick="location.href = 'localhost:3000/monsters';"
+        id="myButton"
+        class="float-left submit-button"
+      ></button>
     </div>
   );
   //   }
