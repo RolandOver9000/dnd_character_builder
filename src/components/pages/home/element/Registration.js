@@ -127,6 +127,7 @@ export const RegistrationButton = () => {
           Registration
         </Button>
         <RegistrationForm
+         form={form}
           formVisibility={visible}
           onCancel={() => {
             setVisible(false);
