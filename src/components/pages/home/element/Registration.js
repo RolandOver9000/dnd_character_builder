@@ -5,7 +5,7 @@ import RegistrationStyle from "../style/RegistrationStyle";
 import formItemLayout from "../style/RegistrationLayout";
 import axios from "axios";
 
-export const RegistrationForm = ({ formVisibility, onOK, onCancel, form }) => {
+export const RegistrationForm = ({ formVisibility, onOk, onCancel, form }) => {
   const onFinish = (values) => {
     console.log("(onfinish)Received values of form, onfinish: ", values);
   };
@@ -17,7 +17,7 @@ export const RegistrationForm = ({ formVisibility, onOK, onCancel, form }) => {
       okText="Registration"
       cancelText="Cancel"
       onCancel={onCancel}
-      onOk={onOK}
+      onOk={onOk}
     >
       <Form
         {...formItemLayout}
