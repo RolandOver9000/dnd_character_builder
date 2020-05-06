@@ -3,7 +3,7 @@ import { Form, Input, Tooltip, Modal, Button } from "antd";
 import { QuestionCircleOutlined } from "@ant-design/icons";
 import RegistrationStyle from "../style/RegistrationStyle";
 import formItemLayout from "../style/RegistrationLayout";
-import Axios from "axios";
+import axios from "axios";
 
 export const RegistrationForm = ({ visible, onCreate, onCancel }) => {
   const [form] = Form.useForm();
@@ -122,19 +122,23 @@ export const RegistrationForm = ({ visible, onCreate, onCancel }) => {
     </Modal>
   );
 };
-
+// unstable_flushDiscreteUpdates: Cannot flush updates when React is already rendering.
 export const RegistrationButton = () => {
   const [visible, setVisible] = useState(false);
   const [registrationCredentials, setRegistrationCredentials] = useState({});
-
+  
   const onCreate = (values) => {
     setRegistrationCredentials(values);
+    console.log(registrationCredentials);
     handleRegistration();
     setVisible(false);
   };
 
   const handleRegistration = () => {
-    Axios.post(
+    axios.defaults.headers.post["Content-Type"] =
+      "application/json;charset=utf-8";
+    axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
+    axios.post(
       "http://localhost:8080/user/registration",
       registrationCredentials
     );
