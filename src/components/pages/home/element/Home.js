@@ -14,7 +14,7 @@ export const Home = () => {
         <Col className="left-side-container">
           <Row className="first-row">
             <div className="side-picture">
-              <img className="dnd-logo" alt="no image here" src={DnDLogo} />
+              <img className="dnd-logo" alt="no img here" src={DnDLogo} />
             </div>
           </Row>
           <Row className="second-row">

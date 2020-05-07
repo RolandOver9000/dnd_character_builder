@@ -4,14 +4,14 @@ import IncrementButton from "./elements/IncrementButton";
 import { v1 as uuid1 } from "uuid";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { getByPlaceholderText } from "@testing-library/react";
+//import { getByPlaceholderText } from "@testing-library/react";
 
 const AddCharacter = (props) => {
   const value = useContext(CharacterContext);
   const skills = value.skills;
   const classes = value.classes;
   const stats = value.stats;
-  const [characters] = value.characters;
+  //const [characters] = value.characters;
   const [statPointsLeft, setStatPointsLeft] = useState(16);
   const [skillPointsLeft, setSkillPointsLeft] = useState(10);
   const { addNewCharacter } = useContext(CharacterContext);
@@ -74,11 +74,8 @@ const AddCharacter = (props) => {
     console.log("useeffect skills");
   }, [skills]);
 
-  // useEffect(() => {
-  //   console.log("useeffect characters");
-  // }, [characters]);
-
   return (
+    // Character name and class
     <div>
       <div className="container-fluid ">
         <h1>Create a new character</h1>
@@ -108,6 +105,7 @@ const AddCharacter = (props) => {
         </div>
       </div>
 
+      {/* character stats */}
       <div className="row" style={{ padding: "15px" }}>
         <div id="stats" className="col-4">
           <h2>Stats: Stat points left: {statPointsLeft}</h2>
@@ -126,6 +124,8 @@ const AddCharacter = (props) => {
           ))}
         </div>
 
+        
+        {/* character skills */}
         <div id="skills" className="col-4" style={{ padding: "5px" }}>
           <h2> Skills: Skill points left: {skillPointsLeft}</h2>
           {skills.map((skill) => (

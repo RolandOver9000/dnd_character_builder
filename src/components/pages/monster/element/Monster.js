@@ -17,7 +17,7 @@ const Monster = ({ name, index }) => {
           <img
             className="card-img-top"
             src="https://pngimage.net/wp-content/uploads/2018/05/dungeons-and-dragons-png-6.png"
-            alt="Card image cap"
+            alt="Card img cap"
           ></img>
           <div className="card-body">
             <h5 className="card-title">{name}</h5>
