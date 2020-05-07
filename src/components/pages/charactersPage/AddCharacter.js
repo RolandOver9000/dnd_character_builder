@@ -4,6 +4,7 @@ import IncrementButton from "./elements/IncrementButton";
 import { v1 as uuid4 } from "uuid";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { getByPlaceholderText } from "@testing-library/react";
 
 const AddCharacter = (props) => {
   const value = useContext(CharacterContext);
@@ -52,7 +53,7 @@ const AddCharacter = (props) => {
         "https://cdnb.artstation.com/p/assets/images/images/007/886/327/large/samuel-marcano-andres1web.jpg?1509138117",
       stats: stats,
       skills: skills,
-      // inventory: [],
+      inventory: [{ name: "gold", unit: "50", price: 1 }],
       skillPoints: skillPointsLeft,
       statpoints: statPointsLeft,
     };
@@ -78,7 +79,7 @@ const AddCharacter = (props) => {
   // }, [characters]);
 
   return (
-    <div >
+    <div>
       <div className="container-fluid ">
         <h1>Create a new character</h1>
 

@@ -145,7 +145,7 @@ export const RegistrationButton = () => {
                   "application/json;charset=utf-8";
                 axios.defaults.headers.post["Access-Control-Allow-Origin"] =
                   "*";
-                axios.post("http://localhost:8080/user/registration", values);
+                axios.post("http://localhost:8080/user/registration", values).then(resp =>alert("User registered: "+ resp.data.userName));
               })
               .catch((info) => {
                 console.log("Validate Failed:", info);
