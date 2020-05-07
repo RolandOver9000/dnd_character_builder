@@ -87,7 +87,7 @@ export const LoginButton = () => {
           }}
           onOk={() => {
             setVisible(false);
-            console.log("Register button clicked");
+            console.log("Login button clicked");
             form
               .validateFields()
               .then((values) => {

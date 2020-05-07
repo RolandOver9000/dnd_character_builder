@@ -113,6 +113,14 @@ export const RegistrationForm = ({ formVisibility, onOk, onCancel, form }) => {
 export const RegistrationButton = () => {
   const [visible, setVisible] = useState(false);
   const [form] = Form.useForm();
+  const handleLogin = (values) => {
+    axios.defaults.headers.post["Content-Type"] =
+      "application/json;charset=utf-8";
+    axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
+    axios
+      .post("http://localhost:8080/user/registration", values)
+      .then((resp) => alert("User registered: " + resp.data.userName));
+  };
 
   return (
     <RegistrationStyle>
@@ -126,7 +134,7 @@ export const RegistrationButton = () => {
           Registration
         </Button>
         <RegistrationForm
-         form={form}
+          form={form}
           formVisibility={visible}
           onCancel={() => {
             setVisible(false);
@@ -140,11 +148,7 @@ export const RegistrationButton = () => {
               .then((values) => {
                 form.resetFields();
                 console.log(values);
-                axios.defaults.headers.post["Content-Type"] =
-                  "application/json;charset=utf-8";
-                axios.defaults.headers.post["Access-Control-Allow-Origin"] =
-                  "*";
-                axios.post("http://localhost:8080/user/registration", values).then(resp =>alert("User registered: "+ resp.data.userName));
+                handleLogin(values);
               })
               .catch((info) => {
                 console.log("Validate Failed:", info);
