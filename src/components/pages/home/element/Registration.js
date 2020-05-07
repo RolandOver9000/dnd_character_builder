@@ -110,7 +110,6 @@ export const RegistrationForm = ({ formVisibility, onOk, onCancel, form }) => {
     </Modal>
   );
 };
-// unstable_flushDiscreteUpdates: Cannot flush updates when React is already rendering.
 export const RegistrationButton = () => {
   const [visible, setVisible] = useState(false);
   const [form] = Form.useForm();

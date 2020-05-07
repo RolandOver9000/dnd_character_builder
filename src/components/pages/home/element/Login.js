@@ -1,28 +1,17 @@
 import React, { useState } from "react";
 import { Button, Modal, Form, Input } from "antd";
 import LoginStyle from "../style/LoginStyle";
-import Axios from "axios";
+import axios from "axios";
 
-const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
-  const [form] = Form.useForm();
+const CollectionCreateForm = ({ formVisibility, onOk, onCancel, form }) => {
   return (
     <Modal
-      visible={visible}
+      visible={formVisibility}
       title="Login"
       okText="Login"
       cancelText="Cancel"
       onCancel={onCancel}
-      onOk={() => {
-        form
-          .validateFields()
-          .then((values) => {
-            form.resetFields();
-            onCreate(values);
-          })
-          .catch((info) => {
-            console.log("Validate Failed:", info);
-          });
-      }}
+      onOk={onOk}
     >
       <Form
         form={form}
@@ -64,25 +53,19 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
 
 export const LoginButton = () => {
   const [visible, setVisible] = useState(false);
-  const [loginCredentials, setLoginCredentials] = useState(null);
+  const [form] = Form.useForm();
 
-  const onCreate = (values) => {
-    console.log("Received values of form: ", values);
-    setLoginCredentials(values);
-    handleLogin();
-    setVisible(false);
-  };
-
-  const handleLogin = () => {
-    Axios.post("http://localhost:8080/user/login", loginCredentials).then(
-      (resp) => {
-        if (resp.data !== "") {
-          console.log("User found.", resp);
-        } else {
-          console.log("User not found.");
-        }
+  const handleLogin = (values) => {
+    axios.defaults.headers.post["Content-Type"] =
+      "application/json;charset=utf-8";
+    axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
+    axios.post("http://localhost:8080/user/login", values).then((resp) => {
+      if (resp.data !== "") {
+        alert("User found.", resp);
+      } else {
+        console.log("User not found.");
       }
-    );
+    });
   };
 
   return (
@@ -97,10 +80,24 @@ export const LoginButton = () => {
           Login
         </Button>
         <CollectionCreateForm
-          visible={visible}
-          onCreate={onCreate}
+          form={form}
+          formVisibility={visible}
           onCancel={() => {
             setVisible(false);
+          }}
+          onOk={() => {
+            setVisible(false);
+            console.log("Register button clicked");
+            form
+              .validateFields()
+              .then((values) => {
+                form.resetFields();
+                console.log("Received values of form: ", values);
+                handleLogin(values);
+              })
+              .catch((info) => {
+                console.log("Validate Failed:", info);
+              });
           }}
         />
       </div>

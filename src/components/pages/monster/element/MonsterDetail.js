@@ -42,6 +42,7 @@ const Monsters = (props) => {
                   src="https://pngimage.net/wp-content/uploads/2018/05/dragon-png-images.png"
                   height="60"
                   width="60"
+                  alt=" "
                 ></img>
               </h2>
             </div>
