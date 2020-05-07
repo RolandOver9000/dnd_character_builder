@@ -9,7 +9,7 @@ function Header() {
       {/* <header style={{ headerStyle, backgroundImage: `url(${DnDLogo})` }}> */}
       <header>
         <img
-          alt="no image here"
+          alt="no img here"
           src={DnDLogo}
           style={{ width: "7%", height: "7%" }}
         />

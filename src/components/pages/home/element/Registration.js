@@ -1,35 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Form, Input, Tooltip, Modal, Button } from "antd";
 import { QuestionCircleOutlined } from "@ant-design/icons";
 import RegistrationStyle from "../style/RegistrationStyle";
 import formItemLayout from "../style/RegistrationLayout";
-import Axios from "axios";
+import axios from "axios";
 
-export const RegistrationForm = ({ visible, onCreate, onCancel }) => {
-  const [form] = Form.useForm();
-
+export const RegistrationForm = ({ formVisibility, onOk, onCancel, form }) => {
   const onFinish = (values) => {
     console.log("(onfinish)Received values of form, onfinish: ", values);
   };
 
   return (
     <Modal
-      visible={visible}
+      visible={formVisibility}
       title="Registration"
       okText="Registration"
       cancelText="Cancel"
       onCancel={onCancel}
-      onOk={() => {
-        form
-          .validateFields()
-          .then((values) => {
-            form.resetFields();
-            onCreate(values);
-          })
-          .catch((info) => {
-            console.log("Validate Failed:", info);
-          });
-      }}
+      onOk={onOk}
     >
       <Form
         {...formItemLayout}
@@ -122,22 +110,16 @@ export const RegistrationForm = ({ visible, onCreate, onCancel }) => {
     </Modal>
   );
 };
-
 export const RegistrationButton = () => {
   const [visible, setVisible] = useState(false);
-  const [registrationCredentials, setRegistrationCredentials] = useState({});
-
-  const onCreate = (values) => {
-    setRegistrationCredentials(values);
-    handleRegistration();
-    setVisible(false);
-  };
-
-  const handleRegistration = () => {
-    Axios.post(
-      "http://localhost:8080/user/registration",
-      registrationCredentials
-    );
+  const [form] = Form.useForm();
+  const handleLogin = (values) => {
+    axios.defaults.headers.post["Content-Type"] =
+      "application/json;charset=utf-8";
+    axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
+    axios
+      .post("http://localhost:8080/user/registration", values)
+      .then((resp) => alert("User registered: " + resp.data.userName));
   };
 
   return (
@@ -152,10 +134,25 @@ export const RegistrationButton = () => {
           Registration
         </Button>
         <RegistrationForm
-          visible={visible}
-          onCreate={onCreate}
+          form={form}
+          formVisibility={visible}
           onCancel={() => {
             setVisible(false);
+          }}
+          onOk={() => {
+            setVisible(false);
+            // ez fut le, ha a modalban a registrationre klikkelsz
+            console.log("Register button clicked");
+            form
+              .validateFields()
+              .then((values) => {
+                form.resetFields();
+                console.log(values);
+                handleLogin(values);
+              })
+              .catch((info) => {
+                console.log("Validate Failed:", info);
+              });
           }}
         />
       </div>

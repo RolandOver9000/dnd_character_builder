@@ -59,11 +59,7 @@ const AddMonsters = () => {
         ></input>
       </form>
 
-      <button
-        onclick="location.href = 'localhost:3000/monsters';"
-        id="myButton"
-        class="float-left submit-button"
-      ></button>
+      
     </div>
   );
   //   }

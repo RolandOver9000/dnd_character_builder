@@ -1,8 +1,8 @@
 import React from "react";
-import { Card, Col } from "antd";
+import { Card } from "antd";
 import ItemStyle from "../style/ItemStyle";
 
-const { Meta } = Card;
+// const { Meta } = Card;
 
 const Item = ({ name, price, priceUnit }) => {
   return (
