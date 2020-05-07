@@ -11,25 +11,15 @@ function Character(props) {
         alt="your character"
         width="140"
         height="200"
-        class="card-img-top"
+        className="card-img-top"
       ></img>
-      <div class="card-body">
-        <h5 class="card-title">name: {props.character.name}</h5>
-        <p class="card-text">class: {props.character.class}</p>
+      <div className="card-body">
+        <h4 style={{fontSize: "1.5em", fontWeight: "bold", color: "white"}} className="card-title">name: {props.character.name}</h4>
+        <p className="card-text">class: {props.character.clas}</p>
         <p>Lvl: {props.character.characterLvl}</p>
       </div>
     </div>
-    //     <div id="card">
-    //       <img
-    //         src={props.character.img}
-    //         alt="your character"
-    //         width="140"
-    //         height="200"
-    //       ></img>
-    //       <p>name: {props.character.name}</p>
-    //       <p>class: {props.character.class}</p>
-    //   <p>Lvl: {props.character.characterLvl}</p>
-    //     </div>
+  
   );
 }
 

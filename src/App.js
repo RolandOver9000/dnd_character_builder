@@ -10,7 +10,7 @@ import Shop from "./components/pages/shop/element/ItemGrid";
 import GlobalStyle from "./components/style/GlobalStyle";
 import AppFontStyle from "./components/style/AppStyle";
 
-import { CharacterProvider } from "./components/context/CharacterContext";
+import { CharacterProvider } from "./components/pages/charactersPage/context/CharacterContext";
 
 import { MonsterProvider } from "./components/pages/monster/context/MonsterContext";
 import Monsters from "./components/pages/monster/element/Monsters";

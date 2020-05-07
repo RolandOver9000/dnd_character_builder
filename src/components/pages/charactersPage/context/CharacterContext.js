@@ -7,11 +7,17 @@ export const CharacterProvider = (props) => {
   const [skills, setSkills] = useState([]);
   const [classes, setClasses] = useState([]);
   const [stats, setStats] = useState([]);
+  for (const stat of stats) {
+    stat.lvl = 1;
+  }
+  for (const skill of skills) {
+    skill.lvl = 0;
+  }
   const [characters, setCharacters] = useState([
     {
       id: 1,
       name: "Skandar Graun",
-      class: "warrior-priest",
+      clas: "warrior-priest",
       characterLvl: 1,
       img: "https://skandargraun.eoldal.hu/img/picture/2/skandar2.jpg",
       stats: [],
@@ -21,7 +27,7 @@ export const CharacterProvider = (props) => {
     {
       id: 2,
       name: "Peltar",
-      class: "wizard",
+      clas: "wizard",
       characterLvl: 10,
       img:
         "https://i.pinimg.com/originals/95/ff/34/95ff3439cd8f575ae1807b1482514db3.jpg",
@@ -30,6 +36,17 @@ export const CharacterProvider = (props) => {
       inventory: [],
     },
   ]);
+  const addNewCharacter = (character) => {
+    setCharacters([...characters,  character]
+    );
+  };
+  //Characters
+  useEffect(()=>{
+    axios.get("http://localhost:8080/characters").then((res)=>{
+      setCharacters(res.data)
+    })
+  },[])
+  
 
   //Skills
   useEffect(() => {
@@ -66,6 +83,7 @@ export const CharacterProvider = (props) => {
         setStats,
         characters,
         setCharacters,
+        addNewCharacter,
       }}
     >
       {props.children}

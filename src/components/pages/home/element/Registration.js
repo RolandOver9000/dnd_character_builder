@@ -64,7 +64,7 @@ export const RegistrationForm = ({ visible, onCreate, onCancel }) => {
           rules={[
             {
               required: true,
-              message: "Please input your password!",
+              message: "Please enter your password!",
             },
           ]}
           hasFeedback
@@ -80,7 +80,7 @@ export const RegistrationForm = ({ visible, onCreate, onCancel }) => {
           rules={[
             {
               required: true,
-              message: "Please confirm your password!",
+              message: "Your password does not match!",
             },
             ({ getFieldValue }) => ({
               validator(rule, value) {
@@ -125,16 +125,20 @@ export const RegistrationForm = ({ visible, onCreate, onCancel }) => {
 
 export const RegistrationButton = () => {
   const [visible, setVisible] = useState(false);
-  const [credentials, setCredentials] = useState({});
+  const [registrationCredentials, setRegistrationCredentials] = useState({});
 
   const onCreate = (values) => {
-    setCredentials(values);
+    setRegistrationCredentials(values);
+    handleRegistration();
     setVisible(false);
   };
 
-  useEffect(() => {
-    Axios.post("http://localhost:8080/user/add", credentials);
-  }, [credentials]);
+  const handleRegistration = () => {
+    Axios.post(
+      "http://localhost:8080/user/registration",
+      registrationCredentials
+    );
+  };
 
   return (
     <RegistrationStyle>

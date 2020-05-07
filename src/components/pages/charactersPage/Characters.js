@@ -1,17 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Character from "./Character";
-import { CharacterContext } from "../../context/CharacterContext";
+import { CharacterContext } from "./context/CharacterContext";
 import { Row, Col, Layout } from "antd";
-import "antd/dist/antd.css";
 
-const Characters = (props) => {
+const Characters = () => {
   const value = useContext(CharacterContext);
   const characters = value.characters;
+  
+  useEffect(() => {}, [characters]);
   const { Content } = Layout;
 
   return (
-    <div>
+    <div style={{fontSize: "1.7em", fontWeight: "bold", color: "white"}}>
       <Link to="/add-new-character">
         {" "}
         <button>Create new character</button>
@@ -23,8 +24,8 @@ const Characters = (props) => {
         >
           <Row gutter={[16, 24]}>
             {characters.map((character) => (
-              <Col className="gutter-row" span={6}>
-                <Character character={character} />
+              <Col id={character.id} className="gutter-row" span={6}>
+                <Character id={character.id} character={character} />
               </Col>
             ))}
           </Row>

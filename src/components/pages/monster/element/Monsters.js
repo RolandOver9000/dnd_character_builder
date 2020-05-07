@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-
 import Monster from "./Monster";
 import { MonsterContext } from "../context/MonsterContext";
 import { Link } from "react-router-dom";
