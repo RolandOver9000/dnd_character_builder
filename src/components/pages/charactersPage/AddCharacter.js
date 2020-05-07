@@ -1,7 +1,7 @@
 import { CharacterContext } from "./context/CharacterContext";
 import React, { useContext, useState, useEffect } from "react";
 import IncrementButton from "./elements/IncrementButton";
-import { v1 as uuid4 } from "uuid";
+import { v1 as uuid1 } from "uuid";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { getByPlaceholderText } from "@testing-library/react";
@@ -45,7 +45,7 @@ const AddCharacter = (props) => {
 
   const createNewCharacter = () => {
     const character = {
-      id: uuid4(),
+      id: uuid1(),
       name: characterName,
       clas: characterClass,
       characterLvl: 1,
@@ -60,7 +60,7 @@ const AddCharacter = (props) => {
     console.log(character);
     //enable to frontend way add created  character to characters page
     addNewCharacter(character);
-    console.log(characters);
+    //console.log(characters);
     axios.defaults.headers.post["Content-Type"] =
       "application/json;charset=utf-8";
     axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";

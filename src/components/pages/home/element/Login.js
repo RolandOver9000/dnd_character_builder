@@ -23,7 +23,7 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
             console.log("Validate Failed:", info);
           });
       }}
-    > 
+    >
       <Form
         form={form}
         layout="vertical"
