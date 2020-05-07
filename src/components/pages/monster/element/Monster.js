@@ -34,6 +34,7 @@ const Monster = ({ name, index }) => {
                 {name}
               </button>
             </Link>
+            <button>Add To Favorites</button>
           </div>
         </div>
       </div>
